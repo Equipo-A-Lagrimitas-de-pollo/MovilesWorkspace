@@ -1,0 +1,7 @@
+package com.moviles.model.entity;
+
+import java.io.Serializable;
+
+public class MovilKey implements Serializable{
+	
+}
