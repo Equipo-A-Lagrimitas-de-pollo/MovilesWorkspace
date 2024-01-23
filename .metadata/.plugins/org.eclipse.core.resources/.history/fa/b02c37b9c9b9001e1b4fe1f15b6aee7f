@@ -1,0 +1,20 @@
+package com.moviles.model.entity;
+
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
+import jakarta.persistence.ManyToOne;
+
+@IdClass(value = MovilKey.class)
+public class Movil {
+	@Id
+	@ManyToOne
+	private Modelo modelo;
+	@Id
+	private Long id;
+	private double ancho;
+	private double grosor;
+	private double alto;
+	private double tamanoPantalla;
+	
+	
+}
