@@ -1,5 +1,6 @@
 package com.moviles.model.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,10 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Procesador {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-
+  @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
 	private int Numeronucleos;
