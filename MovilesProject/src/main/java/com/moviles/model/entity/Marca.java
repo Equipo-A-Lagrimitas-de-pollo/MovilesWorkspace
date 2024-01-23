@@ -8,12 +8,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Procesador {
+public class Marca {
 
 	@Id
 	private Long id;
 	private String nombre;
-	private int Numeronucleos;
-	private double gigaHerziosMaximos;
 	
 }
