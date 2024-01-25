@@ -5,6 +5,7 @@ import java.util.List;
 import com.moviles.model.entity.Movil;
 
 public interface MovilService {
+	public List<Movil> getAll();
 	public List<Movil> filterByMarca(String nombre);
 
 	public List<Movil> filterByPrecioMin(float precioMin);
