@@ -2,6 +2,9 @@ package com.moviles.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TipoPantalla extends JpaRepository<TipoPantalla, Long> {
+import com.moviles.model.entity.TecnologiaPantalla;
+
+
+public interface TipoPantalla extends JpaRepository<TecnologiaPantalla, Long> {
 
 }
