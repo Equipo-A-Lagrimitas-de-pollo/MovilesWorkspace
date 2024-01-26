@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.moviles.model.entity.Marca;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 
@@ -25,8 +24,9 @@ public class ControlerMovil {
         return new ArrayList<>();
     }
 
+    // Para buscar por marca
     @GetMapping("find/{marca}")
-    public List<Marca> get(@PathVariable String marca) {
+    public List<Movil> get(@PathVariable String marca) {
         return new ArrayList<>();
     }
 
@@ -45,6 +45,7 @@ public class ControlerMovil {
         return false;
     }
 
+    // Ruta la cual aztualizara la puntuacion de cada movil
     @PutMapping("updatePuntuacion/{MovilKey}{puntuacion}")
     public boolean put(@PathVariable MovilKey key, @PathVariable int puntuacion) {
         return false;
