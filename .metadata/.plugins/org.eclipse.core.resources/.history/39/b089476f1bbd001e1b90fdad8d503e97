@@ -1,0 +1,24 @@
+package com.moviles.mapper;
+import java.util.List;
+
+import com.moviles.filter.DecoratorFilter;
+import com.moviles.model.DTO.DTOMovilFilter;
+import com.moviles.model.entity.Movil;
+import com.moviles.util.Intervalo;
+import com.moviles.filter.FilterByPrecio;
+import com.moviles.filter.FilterByMarca;
+
+public class MapDTOFilterToDecoratorFilter implements Mapper<DTOMovilFilter, DecoratorFilter> {
+
+	@Override
+	public DecoratorFilter map(DTOMovilFilter t) {
+		DecoratorFilter<List<Movil>,Integer> byMarca = new FilterByMarca(t.getIdMarca());
+		Intervalo priceInterval = new Intervalo(t.getPrecioMin(), t.getPrecioMax());
+		DecoratorFilter<List<Movil>, Intervalo> byPrecio = new FilterByPrecio(null, new Intervalo());
+		return byPrecio;
+	}
+
+
+
+
+}

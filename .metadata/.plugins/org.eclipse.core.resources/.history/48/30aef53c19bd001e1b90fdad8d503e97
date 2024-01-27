@@ -1,0 +1,19 @@
+package com.moviles.filter;
+
+public abstract class DecoratorFilter<ToFilter, Parameter>{
+	
+	protected Parameter parameter;
+	protected DecoratorFilter<ToFilter,?> nextDecoratorFilter;
+	
+	public DecoratorFilter(DecoratorFilter<ToFilter,?> nextDecoratorFilter, Parameter parameter) {
+		this.nextDecoratorFilter=nextDecoratorFilter;
+		this.parameter=parameter;
+	}
+	
+	/**
+	 * @param toFilter
+	 * @return the filtered list
+	 */
+	public abstract ToFilter filter(ToFilter toFilter);
+
+}

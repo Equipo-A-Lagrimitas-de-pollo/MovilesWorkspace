@@ -1,0 +1,5 @@
+package com.moviles.model.DTO;
+
+public class DTOMovilFilter {
+
+}

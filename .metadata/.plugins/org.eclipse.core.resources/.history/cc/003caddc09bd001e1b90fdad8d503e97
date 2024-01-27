@@ -1,0 +1,7 @@
+package com.moviles.filter;
+
+import com.moviles.filter.DecoratorFilter;
+
+public class FilterByPrecio implements DecoratorFilter<List<>> {
+
+}

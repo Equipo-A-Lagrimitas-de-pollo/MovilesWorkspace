@@ -1,0 +1,18 @@
+package com.moviles.filter;
+
+import java.util.List;
+import com.moviles.model.entity.Movil;
+
+public abstract class DecoratorFilter<Parameter>{
+	
+	protected Parameter parameter;
+	protected DecoratorFilter decoratorFilter;
+	
+	public DecoratorFilter(DecoratorFilter decoratorFilter, Parameter parameter) {
+		this.decoratorFilter=decoratorFilter;
+		this.parameter=parameter;
+	}
+	
+	public abstract List<Movil> filter(List<Movil> toFilter);
+
+}

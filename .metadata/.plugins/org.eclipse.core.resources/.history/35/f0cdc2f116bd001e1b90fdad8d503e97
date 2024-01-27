@@ -1,0 +1,21 @@
+package com.moviles.model.DTO;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import com.moviles.model.entity.Marca;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class DTOMovilFilter {
+	private String nombreMarca;
+	private Marca marca;
+	private double precioMax;
+	private double precioMin;
+	private int ramMax;
+	private int ramMin;
+	private boolean nfc;
+	private String tecnologiaPantalla;
+	
+}

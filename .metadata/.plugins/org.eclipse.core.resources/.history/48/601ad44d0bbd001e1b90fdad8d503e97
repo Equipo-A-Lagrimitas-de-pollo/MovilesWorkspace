@@ -1,0 +1,14 @@
+package com.moviles.filter;
+
+import java.util.List;
+
+import com.moviles.filter.DecoratorFilter;
+import com.moviles.model.entity.Movil;
+import com.moviles.util.Intervalo;
+
+public class FilterByPrecio extends DecoratorFilter<List<Movil>, Intervalo> {
+	
+	
+	
+
+}
