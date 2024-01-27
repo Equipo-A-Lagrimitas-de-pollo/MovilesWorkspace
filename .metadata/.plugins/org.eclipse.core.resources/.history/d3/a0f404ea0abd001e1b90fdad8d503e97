@@ -1,9 +1,0 @@
-package com.moviles.filter;
-
-public interface DecoratorFilter<ToFilter, Parameter>{
-	
-	public DecoratorFilter(Parameter parameter);
-	
-	public ToFilter filter(ToFilter toFilter, Parameter parameter);
-
-}
