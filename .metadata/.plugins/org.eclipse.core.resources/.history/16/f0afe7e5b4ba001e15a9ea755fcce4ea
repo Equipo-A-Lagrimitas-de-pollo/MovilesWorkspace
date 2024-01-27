@@ -1,5 +1,0 @@
-package com.moviles.repositories;
-
-public interface MovilRepository {
-
-}
