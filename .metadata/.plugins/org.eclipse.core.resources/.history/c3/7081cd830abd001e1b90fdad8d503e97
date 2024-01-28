@@ -1,0 +1,6 @@
+package com.moviles.util;
+
+public class Intervalo {
+	private double min;
+	private double max;
+}

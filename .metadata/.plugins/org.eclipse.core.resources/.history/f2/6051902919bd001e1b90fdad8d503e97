@@ -1,0 +1,12 @@
+package com.moviles.filter;
+
+import java.util.List;
+
+import com.moviles.filter.DecoratorFilter;
+import com.moviles.model.entity.Movil;
+
+
+
+public class FilterByMarca extends DecoratorFilter<List<Movil>, Integer>{
+
+}

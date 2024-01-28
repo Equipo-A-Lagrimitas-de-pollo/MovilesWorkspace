@@ -1,0 +1,15 @@
+package com.moviles.mapper;
+import com.moviles.filter.DecoratorFilter;
+import com.moviles.model.DTO.DTOMovilFilter;
+
+public class MapDTOFilterToDecoratorFilter implements Mapper<DTOMovilFilter, DecoratorFilter> {
+
+	@Override
+	public DecoratorFilter map(DTOMovilFilter t) {
+		return null;
+	}
+
+
+
+
+}

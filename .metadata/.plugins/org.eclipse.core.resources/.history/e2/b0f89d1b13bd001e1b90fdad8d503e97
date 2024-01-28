@@ -1,0 +1,25 @@
+package com.moviles.filter;
+
+public abstract class DecoratorFilter<ToFilter, Parameter>{
+	
+	protected Parameter parameter;
+	protected DecoratorFilter<ToFilter,?> nextDecoratorFilter;
+	
+	public DecoratorFilter(DecoratorFilter<ToFilter,?> decoratorFilter, Parameter parameter) {
+		this.nextDecorator=decoratorFilter;
+		this.parameter=parameter;
+	}
+	
+	public final ToFilter recursiveFilter(ToFilter toFilter) {
+		ToFilter filtered = filter(toFilter);
+		return callNext(filtered);
+	}
+	
+	public abstract ToFilter filter(ToFilter toFilter);
+	
+	private ToFilter callNext(ToFilter filtered) {
+		if(nextDecorator!=null) nextDecorator.recursiveFilter(filtered);
+		return filtered;
+	}
+
+}

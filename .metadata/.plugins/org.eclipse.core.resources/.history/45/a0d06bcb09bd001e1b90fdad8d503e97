@@ -1,0 +1,5 @@
+package com.moviles.filter;
+
+public class FilterByPrecio {
+
+}

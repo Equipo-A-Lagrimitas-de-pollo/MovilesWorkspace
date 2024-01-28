@@ -1,0 +1,10 @@
+package com.moviles.mapper;
+
+import java.util.List;
+
+import com.moviles.filter.DecoratorFilter;
+import com.moviles.mapper.Mapper;
+
+public class MapDTOFilterToDecoratorFilter implements Mapper<DTOFilter, DecoratorFilter<List<Movil>, ?>> {
+
+}

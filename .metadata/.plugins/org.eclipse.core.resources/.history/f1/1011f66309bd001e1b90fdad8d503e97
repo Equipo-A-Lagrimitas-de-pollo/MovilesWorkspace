@@ -1,0 +1,7 @@
+package com.moviles.filter;
+
+
+
+public interface DecoratorFilter<List<Movil>> {
+
+}

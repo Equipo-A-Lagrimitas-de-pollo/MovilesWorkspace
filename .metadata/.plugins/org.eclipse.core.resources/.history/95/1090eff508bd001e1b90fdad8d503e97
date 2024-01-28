@@ -1,0 +1,7 @@
+package com.moviles.mapper;
+
+import com.moviles.mapper.Mapper;
+
+public class MapDTOFilterToDecoratorFilter implements Mapper {
+
+}
