@@ -13,10 +13,9 @@ public class FilterByRam extends BaseDecoratorFilter<List<Movil>, Intervalo> {
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		List<Movil> filtered =toFilter.stream()
+		return toFilter.stream()
 				.filter(item->item.getRam()>parameter.getMin()&&item.getRam()<parameter.getMax())
 				.toList();
-		return wrappedDecorator.filter(filtered);
 	}
 
 }

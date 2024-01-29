@@ -12,10 +12,9 @@ public class FilterByPrecio extends BaseDecoratorFilter<List<Movil>,Intervalo> {
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		List<Movil> filtered = toFilter.stream()
+		return toFilter.stream()
 				.filter(item->item.getPrecio()>parameter.getMin()&&item.getPrecio()<parameter.getMax())
 				.toList();
-		return wrappedDecorator.filter(filtered);
 	}
 
 

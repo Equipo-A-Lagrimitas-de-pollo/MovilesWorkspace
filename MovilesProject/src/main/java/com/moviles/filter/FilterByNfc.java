@@ -12,10 +12,9 @@ public class FilterByNfc extends BaseDecoratorFilter<List<Movil>, Boolean> {
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		List<Movil>filtered = toFilter.stream()
+		return toFilter.stream()
 				.filter((item) -> item.isNfc() == parameter)
 				.toList();
-		return wrappedDecorator.filter(filtered);
 	}
 
 }

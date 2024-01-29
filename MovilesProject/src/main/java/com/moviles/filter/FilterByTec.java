@@ -13,10 +13,9 @@ public class FilterByTec extends BaseDecoratorFilter<List<Movil>, Long> {
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		List<Movil> filtered = toFilter.stream()
+		return toFilter.stream()
 				.filter(item->item.getTecId()==parameter)
 				.toList();
-		return wrappedDecorator.filter(filtered);
 	}
 
 }
