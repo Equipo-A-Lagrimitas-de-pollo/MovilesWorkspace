@@ -44,4 +44,12 @@ public class Movil {
 	private Date fechaLanzamiento;
 	private int puntuacion;
 
+	
+	public Long getMarcaId() {
+		return modelo.getMarcaId();	
+	}
+	public Long getTecId() {
+		return tecnologiaPantalla.getId();
+	}
+
 }

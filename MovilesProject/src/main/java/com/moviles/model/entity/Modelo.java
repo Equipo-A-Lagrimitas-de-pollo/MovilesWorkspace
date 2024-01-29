@@ -5,8 +5,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 @Entity
+@Data
 
 public class Modelo {
 	@Id
@@ -15,4 +17,8 @@ public class Modelo {
 	@ManyToOne
 	private Marca marca;
 
+	public Long getMarcaId() {
+		return marca.getId();
+		
+	}
 }
