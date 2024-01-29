@@ -9,5 +9,8 @@ public abstract class DecoratorFilter<ToFilter, Parameter>{
 	}
 	
 	public abstract ToFilter filter(ToFilter toFilter);
-	public abstract ToFilter recursiveFilter(ToFilter toFilter);
+	
+	public ToFilter recursiveFilter(ToFilter toFilter) {
+		return filter(toFilter);
+	};
 }
