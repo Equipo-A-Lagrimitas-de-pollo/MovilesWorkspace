@@ -25,6 +25,12 @@ public class Modelo {
 
 	public Long getMarcaId() {
 		return marca.getId();
-		
+
 	}
+
+	public Modelo(Marca marca) {
+		super();
+		this.marca = marca;
+	}
+
 }
