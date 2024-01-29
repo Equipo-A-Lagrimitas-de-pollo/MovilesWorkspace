@@ -4,16 +4,16 @@ import java.util.List;
 
 import com.moviles.model.entity.Movil;
 
-public class FilterByMarca extends DecoratorFilter<List<Movil>, Integer>{
+public class FilterByMarca extends DecoratorFilter<List<Movil>, Long>{
 
-	public FilterByMarca(Integer parameter) {
+	public FilterByMarca(Long parameter) {
 		super(parameter);
 	}
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		//TODO retornar la lista final filtrada
-		return null;
+		return toFilter.stream().filter(movil->movil.getMarcaId()==parameter).toList();
+
 	}
 
 }
