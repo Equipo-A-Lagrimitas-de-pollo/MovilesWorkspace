@@ -42,6 +42,14 @@ public class Movil {
 	private boolean nfc;
 	private double precio;
 	private Date fechaLanzamiento;
+
+	public Long getMarcaId() {
+		return modelo.getMarcaId();	
+	}
+	public Long getTecId() {
+		return tecnologiaPantalla.getId();
+	}
 	private int puntuacion;
+
 
 }

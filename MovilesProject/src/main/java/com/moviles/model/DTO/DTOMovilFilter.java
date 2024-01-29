@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DTOMovilFilter {
-	private int idMarca;
+	private Long idMarca;
 	private double precioMax;
 	private double precioMin;
 	private int ramMax;
 	private int ramMin;
 	private boolean nfc;
-	private int idTecnologiaPantalla;
+	private Long idTecnologiaPantalla;
 }
