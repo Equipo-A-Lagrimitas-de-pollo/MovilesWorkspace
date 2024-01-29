@@ -1,16 +1,15 @@
 package com.moviles.util;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-public class Intervalo {
-	private double min;
-	private double max;
+public class Intervalo<T> {
+	private T min;
+	private T max;
 	
-	public Intervalo(double min, double max) {
+	public Intervalo(T min, T max) {
 		this.min=min;
 		this.max=max;
 	}
