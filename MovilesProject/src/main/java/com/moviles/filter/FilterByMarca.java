@@ -12,8 +12,8 @@ public class FilterByMarca extends DecoratorFilter<List<Movil>, Integer>{
 
 	@Override
 	public List<Movil> filter(List<Movil> toFilter) {
-		//TODO retornar la lista final filtrada
-		return null;
+		return toFilter.stream().filter(movil->movil.getId()==parameter).toList();
+
 	}
 
 }
