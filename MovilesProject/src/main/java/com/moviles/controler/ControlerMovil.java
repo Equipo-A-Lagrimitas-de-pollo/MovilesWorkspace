@@ -1,6 +1,5 @@
 package com.moviles.controler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,21 +12,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
+import com.moviles.service.MovilService;
+import com.moviles.service.impl.MovilServiceImpl;
 
 @RestController
 @RequestMapping("api/movil")
 public class ControlerMovil {
 
+    private MovilService movilService = new MovilServiceImpl();
+
     @GetMapping("find")
     public List<Movil> get() {
 
-        return new ArrayList<>();
+        return movilService.getAll();
     }
 
     // Para buscar por marca
     @GetMapping("find/{marca}")
     public List<Movil> get(@PathVariable String marca) {
-        return new ArrayList<>();
+        return movilService.filterByMarca(marca);
     }
 
     @DeleteMapping("delete")

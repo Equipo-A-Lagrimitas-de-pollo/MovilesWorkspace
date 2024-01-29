@@ -55,7 +55,7 @@ public class MovilServiceImpl implements MovilService {
 	@Override
 	public List<Movil> filterByTec(String tipo) {
 		// TODO Auto-generated method stub
-		
+
 		return null;
 	}
 

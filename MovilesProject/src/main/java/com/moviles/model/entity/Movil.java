@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @IdClass(value = MovilKey.class)
 public class Movil {
+
 	@Id
 	@ManyToOne
 	private Modelo modelo;
@@ -41,5 +42,5 @@ public class Movil {
 	private boolean nfc;
 	private double precio;
 	private Date fechaLanzamiento;
-	
+
 }
