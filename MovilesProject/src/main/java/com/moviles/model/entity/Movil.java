@@ -42,5 +42,6 @@ public class Movil {
 	private boolean nfc;
 	private double precio;
 	private Date fechaLanzamiento;
+	private int puntuacion;
 
 }

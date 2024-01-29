@@ -11,10 +11,11 @@ import com.moviles.repositories.ProcesadorRepository;
 import com.moviles.service.ProcesadorDataService;
 
 @Service
-public class ProcesadorDataServiceImpl implements ProcesadorDataService{
-	
+public class ProcesadorDataServiceImpl implements ProcesadorDataService {
+
 	@Autowired
 	private ProcesadorRepository procesadorRepository;
+
 	@Override
 	public Optional<Procesador> getById(Long id) {
 		return procesadorRepository.findById(id);
@@ -26,19 +27,23 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService{
 	}
 
 	@Override
-	public void save(Procesador entity) {
-		procesadorRepository.save(entity);
+	public boolean save(Procesador entity) {
+		if (procesadorRepository.save(entity) != null) {
+			return true;
+		}
+		return false;
+
 	}
 
 	@Override
-	public void update(Procesador entity) {
-
+	public boolean update(Procesador entity) {
+		return true;
 	}
 
 	@Override
 	public void delete(Long id) {
 		procesadorRepository.deleteById(id);
-		
+
 	}
 
 }

@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
-import com.moviles.service.MovilService;
 import com.moviles.service.impl.MovilServiceImpl;
 
 @RestController
 @RequestMapping("api/movil")
 public class ControlerMovil {
 
-    private MovilService movilService = new MovilServiceImpl();
+    private MovilServiceImpl movilService = new MovilServiceImpl();
 
     @GetMapping("find")
     public List<Movil> get() {
-
         return movilService.getAll();
     }
 
@@ -39,13 +38,13 @@ public class ControlerMovil {
     }
 
     @PostMapping("create")
-    public boolean post() {
-        return false;
+    public boolean post(@RequestBody Movil movil) {
+        return movilService.save(movil);
     }
 
     @PutMapping("update")
-    public boolean put() {
-        return false;
+    public boolean put(@RequestBody Movil movil) {
+        return movilService.update(movil);
     }
 
     // Ruta la cual aztualizara la puntuacion de cada movil
