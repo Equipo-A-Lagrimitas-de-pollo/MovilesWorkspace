@@ -8,6 +8,7 @@ public abstract class BaseDecoratorFilter<ToFilter, Parameter> extends Decorator
 		super(parameter);
 		this.wrappedDecorator=wrappedDecorator;
 	}
+	
 	@Override
 	public ToFilter recursiveFilter(ToFilter toFilter) {
 		return callNext(filter(toFilter));

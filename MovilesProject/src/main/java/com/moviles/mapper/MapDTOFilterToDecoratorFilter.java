@@ -13,8 +13,8 @@ public class MapDTOFilterToDecoratorFilter implements Mapper<DTOMovilFilter, Dec
 	@Override
 	public DecoratorFilter map(DTOMovilFilter t) {
 		DecoratorFilter<List<Movil>, Long> concrete = new FilterByMarca(t.getIdMarca());
-		Intervalo priceInterval = new Intervalo(t.getPrecioMin(), t.getPrecioMax());
-		DecoratorFilter<List<Movil>, Intervalo> filter = new FilterByPrecio(concrete, new Intervalo());
+		Intervalo<Double> priceInterval = new Intervalo<Double>(t.getPrecioMin(), t.getPrecioMax());
+		FilterByPrecio filter = new FilterByPrecio(concrete, priceInterval);
 		return filter;
 	}
 

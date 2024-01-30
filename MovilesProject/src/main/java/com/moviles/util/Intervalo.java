@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
-public class Intervalo<T> {
+public class Intervalo<T extends Number> {
 	private T min;
 	private T max;
 	
