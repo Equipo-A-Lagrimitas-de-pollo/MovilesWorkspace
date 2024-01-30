@@ -3,9 +3,11 @@ package com.moviles.service;
 import java.util.List;
 
 import com.moviles.model.entity.Movil;
+import com.moviles.model.entity.MovilKey;
 
-public interface MovilService {
+public interface MovilService extends DataService<Movil, MovilKey> {
 	public List<Movil> getAll();
+
 	public List<Movil> filterByMarca(String nombre);
 
 	public List<Movil> filterByPrecioMin(float precioMin);

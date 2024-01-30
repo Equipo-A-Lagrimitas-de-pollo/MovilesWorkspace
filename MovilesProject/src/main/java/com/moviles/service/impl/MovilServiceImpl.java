@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.repositories.MovilRepository;
-import com.moviles.service.DataService;
 import com.moviles.service.MovilService;
 
 import io.micrometer.common.lang.NonNull;
 
-public class MovilServiceImpl implements MovilService, DataService<Movil, MovilKey> {
+public class MovilServiceImpl implements MovilService {
 	@Autowired
 	MovilRepository movilRepository;
 
@@ -75,10 +74,8 @@ public class MovilServiceImpl implements MovilService, DataService<Movil, MovilK
 
 	@Override
 	public boolean save(@NonNull Movil entity) {
-		if (movilRepository.save(entity) != null) {
-			return true;
-		}
-		return false;
+		return movilRepository.save(entity) != null ? true : false;
+
 	}
 
 	@Override
@@ -87,8 +84,9 @@ public class MovilServiceImpl implements MovilService, DataService<Movil, MovilK
 	}
 
 	@Override
-	public void delete(@NonNull MovilKey key) {
+	public boolean delete(@NonNull MovilKey key) {
 		movilRepository.deleteById(key);
+		return getById(key) != null ? true : false;
 	}
 
 }
