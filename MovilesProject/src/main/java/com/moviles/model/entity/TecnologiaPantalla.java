@@ -18,10 +18,10 @@ public class TecnologiaPantalla {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String tipo;
+
 	public TecnologiaPantalla(String tipo) {
 		super();
 		this.tipo = tipo;
 	}
-	
-	
+
 }
