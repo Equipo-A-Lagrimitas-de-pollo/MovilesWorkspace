@@ -9,12 +9,12 @@ public class MarcaOM {
 	public static List<Marca> createMarca() {
 		List<Marca> listaMarcas = new ArrayList<>();
 
-		listaMarcas.add(new Marca("Iphone"));
-		listaMarcas.add(new Marca("Samsung"));
-		listaMarcas.add(new Marca("Huawei"));
-		listaMarcas.add(new Marca("Xiaomi"));
-		listaMarcas.add(new Marca("Sony"));
-		listaMarcas.add(new Marca("LG"));
+		listaMarcas.add(new Marca(1l,"Iphone"));
+		listaMarcas.add(new Marca(2l,"Samsung"));
+		listaMarcas.add(new Marca(3l,"Huawei"));
+		listaMarcas.add(new Marca(4l,"Xiaomi"));
+		listaMarcas.add(new Marca(5l,"Sony"));
+		listaMarcas.add(new Marca(6l,"LG"));
 
 		return listaMarcas;
 	}
