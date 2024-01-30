@@ -45,8 +45,9 @@ public class Movil {
 	private int puntuacion;
 
 	public Long getMarcaId() {
-		return modelo.getMarcaId();	
+		return modelo.getMarcaId();
 	}
+
 	public Long getTecId() {
 		return tecnologiaPantalla.getId();
 	}

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.moviles.model.entity.TecnologiaPantalla;
 
 @Repository
-public interface TipoPantalla extends JpaRepository<TecnologiaPantalla, Long> {
+public interface TecnologiaPantallaRepository extends JpaRepository<TecnologiaPantalla, Long> {
 
 }

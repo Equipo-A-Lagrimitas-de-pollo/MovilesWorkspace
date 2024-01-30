@@ -3,7 +3,6 @@ package com.moviles.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.moviles.model.entity.Procesador;
@@ -13,8 +12,11 @@ import com.moviles.service.ProcesadorDataService;
 @Service
 public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 
-	@Autowired
 	private ProcesadorRepository procesadorRepository;
+
+	public ProcesadorDataServiceImpl(ProcesadorRepository procesadorRepository) {
+		this.procesadorRepository = procesadorRepository;
+	}
 
 	@Override
 	public Optional<Procesador> getById(Long id) {
@@ -28,7 +30,7 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 
 	@Override
 	public boolean save(Procesador entity) {
-		return procesadorRepository.save(entity) != null ? true : false;
+		return this.procesadorRepository.save(entity) != null ? true : false;
 	}
 
 	@Override
@@ -40,7 +42,7 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 	@Override
 	public boolean delete(Long id) {
 		procesadorRepository.deleteById(id);
-		return getById(id) != null ? true : false;
+		return !this.procesadorRepository.findById(id).isPresent();
 	}
 
 }

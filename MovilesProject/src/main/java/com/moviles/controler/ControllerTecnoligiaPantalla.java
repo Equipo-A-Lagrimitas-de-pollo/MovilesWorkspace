@@ -1,39 +1,49 @@
 package com.moviles.controler;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.entity.TecnologiaPantalla;
+import com.moviles.service.TecnologiaPantallaService;
 
 @RestController
 @RequestMapping("api/tecnologiaPantalla")
 public class ControllerTecnoligiaPantalla {
 
+    private TecnologiaPantallaService pantallaService;
+
+    public ControllerTecnoligiaPantalla(TecnologiaPantallaService pantallaRepository) {
+        this.pantallaService = pantallaRepository;
+    }
+
     @GetMapping("find")
-    public java.util.List<TecnologiaPantalla> get() {
-        return new ArrayList<>();
+    public ResponseEntity<List<TecnologiaPantalla>> get() {
+        return ResponseEntity.ok(pantallaService.getAll());
     }
 
     @DeleteMapping("borrar")
-    public boolean delete() {
-        return false;
+    public ResponseEntity<Boolean> delete(@RequestParam Long id) {
+        return ResponseEntity.ok(pantallaService.delete(id));
     }
 
     @PostMapping("crear")
-    public boolean post() {
-        return false;
+    public ResponseEntity<Boolean> post(@RequestBody TecnologiaPantalla tecnologiaPantalla) {
+        return ResponseEntity.ok(pantallaService.save(tecnologiaPantalla));
 
     }
 
     @PutMapping("update")
-    public boolean put() {
-        return false;
+    public ResponseEntity<Boolean> put(@RequestBody TecnologiaPantalla tecnologiaPantalla) {
+        return ResponseEntity.ok(pantallaService.update(tecnologiaPantalla));
 
     }
 }

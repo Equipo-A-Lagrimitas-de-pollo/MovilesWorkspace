@@ -3,7 +3,6 @@ package com.moviles.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.moviles.model.DTO.DTORequestPuntuacion;
@@ -16,80 +15,40 @@ import io.micrometer.common.lang.NonNull;
 
 @Service
 public class MovilServiceImpl implements MovilService {
-	@Autowired
-	MovilRepository movilRepository;
 
-	@Override
-	public List<Movil> filterByMarca(String nombre) {
-		return null;
-	}
+	private MovilRepository movilRepository;
 
-	@Override
-	public List<Movil> filterByPrecioMin(float precioMin) {
-		return movilRepository.findAll().stream()
-				.filter((movil) -> movil.getPrecio() > precioMin)
-				.toList();
-	}
-
-	@Override
-	public List<Movil> filterByPrecioMax(float precioMax) {
-		return movilRepository.findAll().stream()
-				.filter((movil) -> movil.getPrecio() < precioMax)
-				.toList();
-	}
-
-	@Override
-	public List<Movil> filterByRamMin(int ramMin) {
-		return movilRepository.findAll().stream()
-				.filter((movil) -> movil.getRam() > ramMin)
-				.toList();
-	}
-
-	@Override
-	public List<Movil> filterByRamMax(int ramMax) {
-		return movilRepository.findAll().stream()
-				.filter((movil) -> movil.getRam() < ramMax)
-				.toList();
-	}
-
-	@Override
-	public List<Movil> filterByNFC(boolean nfc) {
-		return movilRepository.findAll().stream()
-				.filter((movil) -> movil.isNfc() == nfc)
-				.toList();
-	}
-
-	@Override
-	public List<Movil> filterByTec(String tipo) {
-
-		return null;
+	public MovilServiceImpl(MovilRepository movilRepository) {
+		this.movilRepository = movilRepository;
 	}
 
 	@Override
 	public List<Movil> getAll() {
-		return movilRepository.findAll();
+		return this.movilRepository.findAll();
 	}
 
 	@Override
 	public Optional<Movil> getById(@NonNull MovilKey key) {
-		return movilRepository.findById(key);
+		return this.movilRepository.findById(key);
 	}
 
 	@Override
 	public boolean save(@NonNull Movil entity) {
-		return movilRepository.save(entity) != null ? true : false;
+		return this.movilRepository.save(entity) != null ? true : false;
 
 	}
 
 	@Override
 	public boolean update(Movil entity) {
-		return getById(new MovilKey(entity.getModelo(), entity.getId())).isPresent() ? save(entity) : false;
+		return this.movilRepository.findById(new MovilKey(entity.getModelo(), entity.getId())).isPresent()
+				? save(entity)
+				: false;
 	}
 
 	@Override
 	public boolean delete(@NonNull MovilKey key) {
-		movilRepository.deleteById(key);
-		return getById(key) != null ? true : false;
+		this.movilRepository.deleteById(key);
+		return !this.movilRepository.findById(key).isPresent();
 	}
 
 	@Override
@@ -101,7 +60,14 @@ public class MovilServiceImpl implements MovilService {
 
 	@Override
 	public List<Movil> findTopMovil() {
-		return movilRepository.findTop5ByOrderByPuntuacionDesc();
+		return this.movilRepository.findTop5ByOrderByPuntuacionDesc();
+	}
+
+	@Override
+	public List<Movil> filterByMarca(Long marcaId) {
+		return this.movilRepository.findAll().stream().filter(movil -> {
+			return movil.getMarcaId() == marcaId;
+		}).toList();
 	}
 
 }

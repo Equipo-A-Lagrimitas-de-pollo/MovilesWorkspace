@@ -1,38 +1,48 @@
 package com.moviles.controler;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.entity.Marca;
+import com.moviles.service.impl.MarcaServiceImpl;
 
 @RestController
 @RequestMapping("api/marca")
 public class ControllerMarca {
 
+    private MarcaServiceImpl marcaServiceImpl;
+
+    public ControllerMarca(MarcaServiceImpl marcaServiceImpl) {
+        this.marcaServiceImpl = marcaServiceImpl;
+    }
+
     @GetMapping("find")
-    public List<Marca> get() {
-        return new ArrayList<>();
+    public ResponseEntity<List<Marca>> get() {
+        return ResponseEntity.ok(marcaServiceImpl.getAll());
     }
 
     @DeleteMapping("delete")
-    public boolean delete() {
-        return false;
+    public ResponseEntity<Boolean> delete(@RequestParam Long id) {
+        return ResponseEntity.ok(marcaServiceImpl.delete(id));
     }
 
     @PostMapping("create")
-    public boolean post() {
-        return false;
+    public ResponseEntity<Boolean> post(@RequestBody Marca marca) {
+        return ResponseEntity.ok(marcaServiceImpl.save(marca));
     }
 
     @PutMapping("update")
-    public boolean put() {
-        return false;
+    public ResponseEntity<Boolean> put(@RequestBody Marca marca) {
+        return ResponseEntity.ok(marcaServiceImpl
+                .update(marca));
     }
 }
