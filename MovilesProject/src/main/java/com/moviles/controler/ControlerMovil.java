@@ -35,13 +35,13 @@ public class ControlerMovil {
     }
 
     // Para buscar por marca
-    @GetMapping("find/{marca}")
+    @GetMapping("find")
     public ResponseEntity<List<Movil>> get(@RequestParam Long idMarca) {
         return ResponseEntity.ok(movilService.filterByMarca(idMarca));
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<Boolean> delete(@RequestParam MovilKey key) {
+    public ResponseEntity<Boolean> delete(@RequestBody MovilKey key) {
         return ResponseEntity.ok(movilService.delete(key));
     }
 
