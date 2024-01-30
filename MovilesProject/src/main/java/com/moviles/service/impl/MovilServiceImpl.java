@@ -83,7 +83,7 @@ public class MovilServiceImpl implements MovilService {
 
 	@Override
 	public boolean update(Movil entity) {
-		return true;
+		return getById(new MovilKey(entity.getModelo(), entity.getId())).isPresent() ? save(entity) : false;
 	}
 
 	@Override
