@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.moviles.model.DTO.DTORequestPuntuacion;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.repositories.MovilRepository;
@@ -12,6 +14,7 @@ import com.moviles.service.MovilService;
 
 import io.micrometer.common.lang.NonNull;
 
+@Service
 public class MovilServiceImpl implements MovilService {
 	@Autowired
 	MovilRepository movilRepository;
@@ -90,8 +93,15 @@ public class MovilServiceImpl implements MovilService {
 	}
 
 	@Override
-	public boolean updatePuntuacion(MovilKey key, int puntuacion) {
-		
+	public boolean updatePuntuacion(DTORequestPuntuacion requestPuntuacion) {
+		Movil movil = getById(requestPuntuacion.getKey()).get();
+		movil.setPuntuacion(movil.getPuntuacion() + requestPuntuacion.getPuntuacion());
+		return save(movil);
+	}
+
+	@Override
+	public List<Movil> findTopMovil() {
+		return movilRepository.findTop5ByOrderByPuntuacionDesc();
 	}
 
 }
