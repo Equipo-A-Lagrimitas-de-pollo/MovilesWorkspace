@@ -28,11 +28,7 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 
 	@Override
 	public boolean save(Procesador entity) {
-		if (procesadorRepository.save(entity) != null) {
-			return true;
-		}
-		return false;
-
+		return procesadorRepository.save(entity) != null ? true : false;
 	}
 
 	@Override
@@ -41,9 +37,9 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public boolean delete(Long id) {
 		procesadorRepository.deleteById(id);
-
+		return getById(id) != null ? true : false;
 	}
 
 }

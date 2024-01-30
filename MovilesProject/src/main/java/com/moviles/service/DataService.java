@@ -13,6 +13,6 @@ public interface DataService<T, ID> {
 
     public boolean update(T entity);
 
-    public void delete(ID id);
+    public boolean delete(ID id);
 
 }
