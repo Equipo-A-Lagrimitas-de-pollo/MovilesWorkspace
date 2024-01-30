@@ -1,32 +1,36 @@
 package com.moviles.controler;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.entity.Procesador;
-import com.moviles.service.impl.ProcesadorDataServiceImpl;
-
-import jakarta.websocket.server.PathParam;
+import com.moviles.service.ProcesadorDataService;
 
 @RestController
 @RequestMapping("api/procesador")
 public class ControllerProcesador {
 
-    private ProcesadorDataServiceImpl procesadorService = new ProcesadorDataServiceImpl();
+    private final ProcesadorDataService procesadorService;
+
+    public ControllerProcesador(ProcesadorDataService procesadorService) {
+        this.procesadorService = procesadorService;
+    }
 
     @GetMapping("find")
-    public java.util.List<Procesador> get() {
-        return procesadorService.getAll();
+    public ResponseEntity<java.util.List<Procesador>> get() {
+        return ResponseEntity.ok(procesadorService.getAll());
     }
 
     @DeleteMapping("delete")
-    public void delete(@PathParam(value = "") Long id) {
-        procesadorService.delete(id);
+    public boolean delete(@RequestParam Long id) {
+        return procesadorService.delete(id);
     }
 
     @PostMapping("create")
