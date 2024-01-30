@@ -3,10 +3,13 @@ package com.moviles.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.moviles.model.entity.TecnologiaPantalla;
 import com.moviles.repositories.TecnologiaPantallaRepository;
 import com.moviles.service.TecnologiaPantallaService;
 
+@Service
 public class TecnologiaPantallaservice implements TecnologiaPantallaService {
 
     private TecnologiaPantallaRepository tecnologiaPantallaRepository;

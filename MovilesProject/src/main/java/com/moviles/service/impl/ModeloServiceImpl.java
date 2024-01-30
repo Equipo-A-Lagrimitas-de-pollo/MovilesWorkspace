@@ -3,10 +3,13 @@ package com.moviles.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.moviles.model.entity.Modelo;
 import com.moviles.repositories.ModeloRepository;
 import com.moviles.service.ModeloService;
 
+@Service
 public class ModeloServiceImpl implements ModeloService {
 
     private ModeloRepository modeloRepository;
