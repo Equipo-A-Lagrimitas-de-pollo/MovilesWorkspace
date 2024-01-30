@@ -1,6 +1,6 @@
 package com.moviles.model.entity;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,13 +41,36 @@ public class Movil {
 	private int megaPixeles;
 	private boolean nfc;
 	private double precio;
-	private Date fechaLanzamiento;
+	private LocalDate fechaLanzamiento;
 	private int puntuacion;
 
 	public Long getMarcaId() {
-		return modelo.getMarcaId();	
+		return modelo.getMarcaId();
 	}
+
 	public Long getTecId() {
 		return tecnologiaPantalla.getId();
 	}
+
+	public Movil(Modelo modelo, Procesador procesador, TecnologiaPantalla tecnologiaPantalla, double ancho,
+			double grosor, double alto, double tamanoPantalla, int almacenamiento, int ram, double peso,
+			int megaPixeles, boolean nfc, double precio, LocalDate fechaLanzamiento, int puntuacion) {
+		super();
+		this.modelo = modelo;
+		this.procesador = procesador;
+		this.tecnologiaPantalla = tecnologiaPantalla;
+		this.ancho = ancho;
+		this.grosor = grosor;
+		this.alto = alto;
+		this.tamanoPantalla = tamanoPantalla;
+		this.almacenamiento = almacenamiento;
+		this.ram = ram;
+		this.peso = peso;
+		this.megaPixeles = megaPixeles;
+		this.nfc = nfc;
+		this.precio = precio;
+		this.fechaLanzamiento = fechaLanzamiento;
+		this.puntuacion = puntuacion;
+	}
+
 }
