@@ -17,13 +17,13 @@ public class Procesador {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
-	private int Numeronucleos;
+	private int numeronucleos;
 	private double gigaHerziosMaximos;
 
 	public Procesador(String nombre, int numeronucleos, double gigaHerziosMaximos) {
 		super();
 		this.nombre = nombre;
-		Numeronucleos = numeronucleos;
+		this.numeronucleos = numeronucleos;
 		this.gigaHerziosMaximos = gigaHerziosMaximos;
 	}
 

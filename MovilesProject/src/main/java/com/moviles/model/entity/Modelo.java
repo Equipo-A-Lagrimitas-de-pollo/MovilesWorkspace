@@ -22,15 +22,18 @@ public class Modelo {
 	private Long id;
 	@ManyToOne
 	private Marca marca;
+	
+	private String nombre;
 
 	public Long getMarcaId() {
 		return marca.getId();
 
 	}
 
-	public Modelo(Marca marca) {
+	public Modelo(Marca marca, String nombre) {
 		super();
 		this.marca = marca;
+		this.nombre = nombre;
 	}
 
 }

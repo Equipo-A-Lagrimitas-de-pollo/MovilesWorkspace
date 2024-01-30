@@ -6,11 +6,9 @@ import java.util.List;
 import com.moviles.model.entity.Procesador;
 
 public class ProcesadorOM {
-	public static List<Procesador> createProcesador(String nombreProcesador, int numeroNucleos,
-			double gigaHerziosMaximos) {
+	public static List<Procesador> createProcesador() {
 		List<Procesador> listaProcesadores = new ArrayList<>();
-		Procesador procesador = new Procesador();
-		listaProcesadores.add(procesador);
+		listaProcesadores.add(new Procesador(nombreProcesador, numeroNucleos, gigaHerziosMaximos));
 		return listaProcesadores;
 	}
 }
