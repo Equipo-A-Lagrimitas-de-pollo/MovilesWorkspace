@@ -67,7 +67,7 @@ public class ControlerMovil {
     }
 
     @GetMapping("topMovil")
-    public ResponseEntity<List<Movil>> getMethodName(@RequestParam String param) {
+    public ResponseEntity<List<Movil>> getTopMovil() {
         return ResponseEntity.ok(movilService.findTopMovil());
     }
 
