@@ -33,7 +33,8 @@ public class ProcesadorDataServiceImpl implements ProcesadorDataService {
 
 	@Override
 	public boolean update(Procesador entity) {
-		return true;
+		return getById(entity.getId()).isPresent() ? save(entity) : false;
+
 	}
 
 	@Override

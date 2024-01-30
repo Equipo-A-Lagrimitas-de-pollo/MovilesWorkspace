@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,17 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.DTO.DTOMovilFilter;
+import com.moviles.model.DTO.DTORequestPuntuacion;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
-import com.moviles.service.MovilService;
+import com.moviles.service.impl.MovilServiceImpl;
 
 @RestController
 @RequestMapping("api/movil")
 public class ControlerMovil {
 
-    private final MovilService movilService;
+    private final MovilServiceImpl movilService;
 
-    public ControlerMovil(MovilService movilService) {
+    public ControlerMovil(MovilServiceImpl movilService) {
         this.movilService = movilService;
     }
 
@@ -61,9 +61,14 @@ public class ControlerMovil {
     }
 
     // Ruta la cual aztualizara la puntuacion de cada movil
-    @PutMapping("updatePuntuacion/{MovilKey}{puntuacion}")
-    public boolean put(@PathVariable MovilKey key, @RequestParam int puntuacion) {
-        return false;
+    @PutMapping("updatePuntuacion/")
+    public ResponseEntity<Boolean> put(@RequestBody DTORequestPuntuacion requestPuntuacion) {
+        return ResponseEntity.ok(movilService.updatePuntuacion(requestPuntuacion));
+    }
+
+    @GetMapping("topMovil")
+    public ResponseEntity<List<Movil>> getMethodName(@RequestParam String param) {
+        return ResponseEntity.ok(movilService.findTopMovil());
     }
 
 }
