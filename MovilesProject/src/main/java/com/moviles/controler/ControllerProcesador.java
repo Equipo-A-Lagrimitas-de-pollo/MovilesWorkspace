@@ -29,18 +29,18 @@ public class ControllerProcesador {
     }
 
     @DeleteMapping("delete")
-    public boolean delete(@RequestParam Long id) {
-        return procesadorService.delete(id);
+    public ResponseEntity<Boolean> delete(@RequestParam Long id) {
+        return ResponseEntity.ok(procesadorService.delete(id));
     }
 
     @PostMapping("create")
-    public boolean post(@RequestBody Procesador procesador) {
-        return procesadorService.save(procesador);
+    public ResponseEntity<Boolean> post(@RequestBody Procesador procesador) {
+        return ResponseEntity.ok(procesadorService.save(procesador));
     }
 
     @PutMapping("update")
-    public boolean put(@RequestBody Procesador updateObject) {
-        return procesadorService.update(updateObject);
+    public ResponseEntity<Boolean> put(@RequestBody Procesador updateObject) {
+        return ResponseEntity.ok(procesadorService.update(updateObject));
     }
 
 }

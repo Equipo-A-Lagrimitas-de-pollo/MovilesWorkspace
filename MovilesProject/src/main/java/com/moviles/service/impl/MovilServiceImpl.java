@@ -89,4 +89,9 @@ public class MovilServiceImpl implements MovilService {
 		return getById(key) != null ? true : false;
 	}
 
+	@Override
+	public boolean updatePuntuacion(MovilKey key, int puntuacion) {
+		
+	}
+
 }

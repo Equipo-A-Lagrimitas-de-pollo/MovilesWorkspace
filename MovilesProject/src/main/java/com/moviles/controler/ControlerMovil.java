@@ -41,21 +41,21 @@ public class ControlerMovil {
     }
 
     @DeleteMapping("delete")
-    public boolean delete(@RequestParam MovilKey key) {
-        return movilService.delete(key);
+    public ResponseEntity<Boolean> delete(@RequestParam MovilKey key) {
+        return ResponseEntity.ok(movilService.delete(key));
     }
 
     @PostMapping("create")
-    public boolean post(@RequestBody Movil movil) {
-        return movilService.save(movil);
+    public ResponseEntity<Boolean> post(@RequestBody Movil movil) {
+        return ResponseEntity.ok(movilService.save(movil));
     }
 
     @PutMapping("update")
-    public boolean put(@RequestBody Movil movil) {
-        return movilService.update(movil);
+    public ResponseEntity<Boolean> put(@RequestBody Movil movil) {
+        return ResponseEntity.ok(movilService.update(movil));
     }
 
-    @GetMapping("filter/{marca}{modelo}{precio}")
+    @GetMapping("filter")
     public ResponseEntity<List<Movil>> getMethodName(@RequestBody DTOMovilFilter movilFilter) {
         return ResponseEntity.ok(new ArrayList<Movil>());
     }
