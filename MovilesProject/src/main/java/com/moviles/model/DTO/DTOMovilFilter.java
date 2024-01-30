@@ -13,6 +13,6 @@ public class DTOMovilFilter {
 	private double precioMin;
 	private int ramMax;
 	private int ramMin;
-	private boolean nfc;
+	private Boolean nfc;
 	private Long idTecnologiaPantalla;
 }
