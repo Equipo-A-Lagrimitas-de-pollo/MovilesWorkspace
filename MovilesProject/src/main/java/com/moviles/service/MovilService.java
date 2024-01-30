@@ -21,4 +21,6 @@ public interface MovilService extends DataService<Movil, MovilKey> {
 	public List<Movil> filterByNFC(boolean nfc);
 
 	public List<Movil> filterByTec(String tipo);
+
+	public boolean updatePuntuacion(MovilKey key, int puntuacion);
 }
