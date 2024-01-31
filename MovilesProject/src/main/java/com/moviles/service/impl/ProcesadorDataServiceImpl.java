@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.moviles.model.entity.Procesador;
 import com.moviles.repositories.ProcesadorRepository;
-import com.moviles.service.ProcesadorDataService;
+import com.moviles.service.ProcesadorService;
 
 @Service
-public class ProcesadorDataServiceImpl implements ProcesadorDataService {
+public class ProcesadorDataServiceImpl implements ProcesadorService {
 
 	private ProcesadorRepository procesadorRepository;
 
