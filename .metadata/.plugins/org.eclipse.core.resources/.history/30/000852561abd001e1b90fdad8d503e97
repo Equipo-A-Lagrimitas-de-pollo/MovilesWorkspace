@@ -1,7 +1,0 @@
-package com.moviles.filter;
-
-import com.moviles.filter.DecoratorFilter;
-
-public abstract class BaseDecoratorFilter<ToFilter, Parameter> extends DecoratorFilter{
-
-}

@@ -35,8 +35,8 @@ public class ControlerMovil {
     }
 
     // Para buscar por marca
-    @GetMapping("find")
-    public ResponseEntity<List<Movil>> get(@RequestParam Long idMarca) {
+    @GetMapping("findByMarca")
+    public ResponseEntity<List<Movil>> getByMarca(@RequestParam Long idMarca) {
         return ResponseEntity.ok(movilService.filterByMarca(idMarca));
     }
 

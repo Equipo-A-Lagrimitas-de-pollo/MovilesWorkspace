@@ -1,8 +1,0 @@
-package com.moviles.filter;
-
-import com.moviles.filter.DecoratorFilter;
-import com.moviles.model.entity.Movil;
-
-public class FilterByPrecio implements DecoratorFilter<List<Movil>> {
-
-}
