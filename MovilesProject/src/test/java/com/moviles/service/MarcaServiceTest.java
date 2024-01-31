@@ -11,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.moviles.OMs.MarcaOM;
 import com.moviles.model.entity.Marca;
-import com.moviles.service.MarcaService;
 
 @SpringBootTest
 class MarcaServiceTest {

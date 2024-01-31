@@ -6,7 +6,7 @@ import java.util.List;
 import com.moviles.model.entity.Procesador;
 
 public class ProcesadorOM {
-	public static List<Procesador> createProcesador() {
+	public List<Procesador> createProcesador() {
 		List<Procesador> listaProcesadores = new ArrayList<>();
 		listaProcesadores.add(new Procesador(1l,"Intel Core i5", 4, 3.6));
 		listaProcesadores.add(new Procesador(2l,"AMD Ryzen 7", 8, 4.2));
