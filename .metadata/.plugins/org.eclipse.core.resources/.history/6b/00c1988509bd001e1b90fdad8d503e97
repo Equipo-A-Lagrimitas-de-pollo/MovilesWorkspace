@@ -1,7 +1,0 @@
-package com.moviles.filter;
-
-import com.moviles.entity.Movil;
-
-public interface DecoratorFilter<List<Movil>> {
-
-}

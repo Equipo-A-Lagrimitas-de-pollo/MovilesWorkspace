@@ -1,9 +1,0 @@
-package com.moviles.util;
-
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
-public class Intervalo {
-	private double min;
-	private double max;
-}

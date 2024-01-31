@@ -1,6 +1,5 @@
 package com.moviles.model.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,10 +14,17 @@ import lombok.NoArgsConstructor;
 @Data
 public class Procesador {
 	@Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
-	private int Numeronucleos;
+	private int numeronucleos;
 	private double gigaHerziosMaximos;
-	
+
+	public Procesador(String nombre, int numeronucleos, double gigaHerziosMaximos) {
+		super();
+		this.nombre = nombre;
+		this.numeronucleos = numeronucleos;
+		this.gigaHerziosMaximos = gigaHerziosMaximos;
+	}
+
 }

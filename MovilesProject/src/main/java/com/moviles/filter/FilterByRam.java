@@ -5,9 +5,9 @@ import java.util.List;
 import com.moviles.model.entity.Movil;
 import com.moviles.util.Intervalo;
 
-public class FilterByRam extends BaseDecoratorFilter<List<Movil>, Intervalo> {
+public class FilterByRam extends BaseDecoratorFilter<List<Movil>, Intervalo<Long>> {
 
-	public FilterByRam(Intervalo parameter, DecoratorFilter<List<Movil>, ?> wrappedDecorator) {
+	public FilterByRam(Intervalo<Long> parameter, DecoratorFilter<List<Movil>, ?> wrappedDecorator) {
 		super(parameter, wrappedDecorator);
 	}
 
