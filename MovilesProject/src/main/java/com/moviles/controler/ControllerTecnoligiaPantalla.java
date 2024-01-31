@@ -29,6 +29,10 @@ public class ControllerTecnoligiaPantalla {
     public ResponseEntity<List<TecnologiaPantalla>> get() {
         return ResponseEntity.ok(pantallaService.getAll());
     }
+    @GetMapping("findById")
+    public ResponseEntity<TecnologiaPantalla> getById(@RequestParam Long id) {
+        return ResponseEntity.ok(pantallaService.getById(id).get());
+    }
 
     @DeleteMapping("borrar")
     public ResponseEntity<Boolean> delete(@RequestParam Long id) {

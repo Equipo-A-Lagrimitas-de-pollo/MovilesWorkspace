@@ -33,6 +33,11 @@ public class ControlerMovil {
     public ResponseEntity<List<Movil>> get() {
         return ResponseEntity.ok(movilService.getAll());
     }
+    
+    @GetMapping("findById")
+    public ResponseEntity<Movil> getById(@RequestBody MovilKey movilKey) {
+        return ResponseEntity.ok(movilService.getById(movilKey).get());
+    }
 
     // Para buscar por marca
     @GetMapping("findByMarca")
