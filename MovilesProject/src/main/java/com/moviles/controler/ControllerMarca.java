@@ -29,6 +29,10 @@ public class ControllerMarca {
     public ResponseEntity<List<Marca>> get() {
         return ResponseEntity.ok(marcaServiceImpl.getAll());
     }
+    @GetMapping("findById")
+    public ResponseEntity<Marca> getById(@RequestParam Long id) {
+        return ResponseEntity.ok(marcaServiceImpl.getById(id).get());
+    }
 
     @DeleteMapping("delete")
     public ResponseEntity<Boolean> delete(@RequestParam Long id) {
