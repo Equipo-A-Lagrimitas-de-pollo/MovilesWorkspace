@@ -41,7 +41,7 @@ public class ControlerMovil {
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<Boolean> delete(@RequestParam MovilKey key) {
+    public ResponseEntity<Boolean> delete(@RequestBody MovilKey key) {
         return ResponseEntity.ok(movilService.delete(key));
     }
 
