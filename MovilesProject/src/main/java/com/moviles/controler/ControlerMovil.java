@@ -58,7 +58,7 @@ public class ControlerMovil {
 
     @GetMapping("filter")
     public ResponseEntity<List<Movil>> getMethodName(@RequestBody DTOMovilFilter movilFilter) {
-        return ResponseEntity.ok(new ArrayList<Movil>());
+        return ResponseEntity.ok(movilService.filter(movilFilter));
     }
 
     // Ruta la cual aztualizara la puntuacion de cada movil

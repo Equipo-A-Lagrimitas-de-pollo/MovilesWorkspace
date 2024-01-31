@@ -10,7 +10,7 @@ import com.moviles.repositories.MarcaRepository;
 import com.moviles.service.MarcaService;
 
 @Service
-public class MarcaServiceImpl implements MarcaService {
+public class MarcaServiceImpl implements MarcaService{
 
     private MarcaRepository marcaRepository;
 

@@ -11,7 +11,7 @@ public class FilterByRam extends Filter<Intervalo<Integer>>{
 
 	@Override
 	public boolean filter(Movil item) {
-		return item.getRam()>parameter.getMin()&&item.getRam()<parameter.getMin();
+		return item.getRam()>=parameter.getMin()&&item.getRam()<=parameter.getMax();
 	}
 
 }

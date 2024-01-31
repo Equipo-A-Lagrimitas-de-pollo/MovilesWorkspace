@@ -12,7 +12,7 @@ public class FilterByPrecio extends Filter<Intervalo<Double>> {
 
 	@Override
 	public boolean filter(Movil item) {
-		return item.getPrecio()>parameter.getMin()&&item.getPrecio()<parameter.getMax();
+		return item.getPrecio()>=parameter.getMin()&&item.getPrecio()<=parameter.getMax();
 	}
 
 }

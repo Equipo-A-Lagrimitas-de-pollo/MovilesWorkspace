@@ -1,22 +1,27 @@
 package com.moviles.service.impl;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.moviles.filterV2.Filter;
+import com.moviles.mapper.MapDTOFilterToListFilter;
+import com.moviles.model.DTO.DTOMovilFilter;
 import com.moviles.model.DTO.DTORequestPuntuacion;
 import com.moviles.model.DTO.DTOcompare;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.repositories.MovilRepository;
+import com.moviles.service.FilterService;
 import com.moviles.service.MovilService;
 
 import io.micrometer.common.lang.NonNull;
 
 @Service
-public class MovilServiceImpl implements MovilService {
+public class MovilServiceImpl implements MovilService,FilterService<List<Movil>, DTOMovilFilter> {
 
 	private MovilRepository movilRepository;
 
@@ -78,6 +83,17 @@ public class MovilServiceImpl implements MovilService {
 		list.add(this.movilRepository.findById(keys.getKey1()).get());
 		list.add(this.movilRepository.findById(keys.getKey2()).get());
 		return list;
+	}
+
+	@Override
+	public List<Movil> filter(DTOMovilFilter parametros) {
+		List<Movil> toFilter = getAll();
+		List<Filter<?>> filtros= new MapDTOFilterToListFilter().map(parametros);
+		for (Filter<?> filter : filtros) {
+			toFilter=toFilter.stream().filter(movil->filter.filter(movil)).toList();
+		}
+		return toFilter;	
+		
 	}
 
 }
