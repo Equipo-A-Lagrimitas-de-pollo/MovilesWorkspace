@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.DTO.DTOMovilFilter;
 import com.moviles.model.DTO.DTORequestPuntuacion;
+import com.moviles.model.DTO.DTOcompare;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.service.impl.MovilServiceImpl;
@@ -32,11 +33,6 @@ public class ControlerMovil {
     @GetMapping("find")
     public ResponseEntity<List<Movil>> get() {
         return ResponseEntity.ok(movilService.getAll());
-    }
-    
-    @GetMapping("findById")
-    public ResponseEntity<Movil> getById(@RequestBody MovilKey movilKey) {
-        return ResponseEntity.ok(movilService.getById(movilKey).get());
     }
 
     // Para buscar por marca
@@ -77,8 +73,8 @@ public class ControlerMovil {
     }
 
     @GetMapping("compareMovile")
-    public ResponseEntity<List<Movil>> compareMovile(@RequestBody MovilKey key, @RequestBody MovilKey key2) {
-        return ResponseEntity.ok(movilService.compareMovile(key, key2));
+    public ResponseEntity<List<Movil>> compareMovile(@RequestBody DTOcompare keys) {
+        return ResponseEntity.ok(movilService.compareMovile(keys));
     }
 
 }
