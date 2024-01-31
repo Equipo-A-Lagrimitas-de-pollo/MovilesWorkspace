@@ -1,34 +1,36 @@
 package com.moviles.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import com.moviles.OMs.TecnologiaPantallaOM;
+import com.moviles.model.entity.TecnologiaPantalla;
+
+@SpringBootTest
 class TecnologiaPantallaServiceTest {
+	@Autowired
+	private TecnologiaPantallaService tecnologiaPantallaService;
 
-	@Test
-	void testGetById() {
-		fail("Not yet implemented");
-	}
+	private static List<TecnologiaPantalla> listaTecnologiaPantallaServices;
 
-	@Test
-	void testGetAll() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testSave() {
-		fail("Not yet implemented");
+	@BeforeAll
+	static void poblar(@Autowired TecnologiaPantallaService tecnologiaPantallaService) {
+		listaTecnologiaPantallaServices = new TecnologiaPantallaOM().createTecnologiaPantalla();
+		for (TecnologiaPantalla tecnologiaPantalla : listaTecnologiaPantallaServices) {
+			tecnologiaPantallaService.save(tecnologiaPantalla);
+		}
 	}
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testDelete() {
-		fail("Not yet implemented");
+		TecnologiaPantalla tecnologiaPantalla = listaTecnologiaPantallaServices.get(1);
+		assertTrue(tecnologiaPantallaService.update(tecnologiaPantalla));
 	}
 
 }

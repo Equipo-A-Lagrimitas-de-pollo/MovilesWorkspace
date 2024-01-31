@@ -17,11 +17,11 @@ import com.moviles.service.TecnologiaPantallaService;
 
 @RestController
 @RequestMapping("api/tecnologiaPantalla")
-public class ControllerTecnoligiaPantalla {
+public class ControllerTecnologiaPantalla {
 
     private TecnologiaPantallaService pantallaService;
 
-    public ControllerTecnoligiaPantalla(TecnologiaPantallaService pantallaRepository) {
+    public ControllerTecnologiaPantalla(TecnologiaPantallaService pantallaRepository) {
         this.pantallaService = pantallaRepository;
     }
 

@@ -35,7 +35,7 @@ public class ModeloServiceImpl implements ModeloService {
 
     @Override
     public boolean update(Modelo entity) {
-        return this.modeloRepository.findById(entity.getId()).isPresent() ? true : false;
+        return this.modeloRepository.findById(entity.getId()).isPresent() ? save(entity) : false;
     }
 
     @Override

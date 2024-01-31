@@ -7,7 +7,7 @@ import com.moviles.model.entity.Marca;
 import com.moviles.model.entity.Modelo;
 
 public class ModeloOM {
-	public static List<Modelo> createModelo() {
+	public List<Modelo> createModelo() {
 		List<Modelo> listaModelos = new ArrayList<>();
 		listaModelos.add(new Modelo(1l,new Marca("Iphone"), "14"));
 		listaModelos.add(new Modelo(2l,new Marca("Xiaomi"), "MiA2"));
