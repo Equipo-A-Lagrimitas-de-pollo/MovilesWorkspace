@@ -6,7 +6,7 @@ import java.util.List;
 import com.moviles.model.entity.Marca;
 
 public class MarcaOM {
-	public static List<Marca> createMarca() {
+	public List<Marca> createMarca() {
 		List<Marca> listaMarcas = new ArrayList<>();
 
 		listaMarcas.add(new Marca(1l,"Iphone"));

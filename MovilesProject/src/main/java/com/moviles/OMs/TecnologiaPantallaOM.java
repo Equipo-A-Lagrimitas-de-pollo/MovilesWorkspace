@@ -6,7 +6,7 @@ import java.util.List;
 import com.moviles.model.entity.TecnologiaPantalla;
 
 public class TecnologiaPantallaOM {
-	public static List<TecnologiaPantalla> createTecnologiaPantalla() {
+	public List<TecnologiaPantalla> createTecnologiaPantalla() {
 		List<TecnologiaPantalla> listaTecnologiasPantalla = new ArrayList<>();
 		listaTecnologiasPantalla.add(new TecnologiaPantalla(1l,"OLED"));
 		listaTecnologiasPantalla.add(new TecnologiaPantalla(2l,"LCD"));

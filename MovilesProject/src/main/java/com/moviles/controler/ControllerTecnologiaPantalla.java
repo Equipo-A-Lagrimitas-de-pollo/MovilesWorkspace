@@ -17,17 +17,21 @@ import com.moviles.service.TecnologiaPantallaService;
 
 @RestController
 @RequestMapping("api/tecnologiaPantalla")
-public class ControllerTecnoligiaPantalla {
+public class ControllerTecnologiaPantalla {
 
     private TecnologiaPantallaService pantallaService;
 
-    public ControllerTecnoligiaPantalla(TecnologiaPantallaService pantallaRepository) {
+    public ControllerTecnologiaPantalla(TecnologiaPantallaService pantallaRepository) {
         this.pantallaService = pantallaRepository;
     }
 
     @GetMapping("find")
     public ResponseEntity<List<TecnologiaPantalla>> get() {
         return ResponseEntity.ok(pantallaService.getAll());
+    }
+    @GetMapping("findById")
+    public ResponseEntity<TecnologiaPantalla> getById(@RequestParam Long id) {
+        return ResponseEntity.ok(pantallaService.getById(id).get());
     }
 
     @DeleteMapping("borrar")
