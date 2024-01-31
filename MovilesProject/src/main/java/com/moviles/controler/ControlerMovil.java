@@ -71,4 +71,9 @@ public class ControlerMovil {
         return ResponseEntity.ok(movilService.findTopMovil());
     }
 
+    @GetMapping("compareMovile")
+    public ResponseEntity<List<Movil>> compareMovile(@RequestBody MovilKey key, @RequestBody MovilKey key2) {
+        return ResponseEntity.ok(movilService.compareMovile(key, key2));
+    }
+
 }

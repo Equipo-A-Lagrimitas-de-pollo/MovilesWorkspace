@@ -1,5 +1,6 @@
 package com.moviles.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,6 +69,14 @@ public class MovilServiceImpl implements MovilService {
 		return this.movilRepository.findAll().stream().filter(movil -> {
 			return movil.getMarcaId() == marcaId;
 		}).toList();
+	}
+
+	@Override
+	public List<Movil> compareMovile(MovilKey key, MovilKey key2) {
+		List<Movil> list = new ArrayList<>();
+		list.add(this.movilRepository.findById(key).get());
+		list.add(this.movilRepository.findById(key2).get());
+		return list;
 	}
 
 }

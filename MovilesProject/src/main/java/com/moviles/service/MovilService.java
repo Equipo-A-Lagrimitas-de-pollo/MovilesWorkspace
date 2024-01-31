@@ -13,4 +13,6 @@ public interface MovilService extends DataService<Movil, MovilKey> {
 	public boolean updatePuntuacion(DTORequestPuntuacion requestPuntuacion);
 
 	public List<Movil> findTopMovil();
+
+	public List<Movil> compareMovile(MovilKey key, MovilKey key2);
 }
