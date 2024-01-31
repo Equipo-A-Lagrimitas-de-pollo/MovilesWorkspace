@@ -27,6 +27,10 @@ public class ControllerProcesador {
     public ResponseEntity<java.util.List<Procesador>> get() {
         return ResponseEntity.ok(procesadorService.getAll());
     }
+    @GetMapping("findById")
+    public ResponseEntity<Procesador> getById(@RequestParam Long id) {
+        return ResponseEntity.ok(procesadorService.getById(id).get());
+    }
 
     @DeleteMapping("delete")
     public ResponseEntity<Boolean> delete(@RequestParam Long id) {

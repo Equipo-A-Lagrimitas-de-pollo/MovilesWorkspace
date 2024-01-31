@@ -6,6 +6,7 @@ import com.moviles.model.entity.MovilKey;
 import com.moviles.model.entity.Procesador;
 import com.moviles.model.entity.TecnologiaPantalla;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DTORequestMovil {
 
+	@NotNull
     private MovilKey key;
     private Procesador procesador;
     private TecnologiaPantalla tecnologiaPantalla;
@@ -29,4 +31,5 @@ public class DTORequestMovil {
     private boolean nfc;
     private double precio;
     private Date fechaLanzamiento;
+    
 }
