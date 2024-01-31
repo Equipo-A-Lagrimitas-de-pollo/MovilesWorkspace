@@ -2,6 +2,7 @@ package com.moviles.model.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,9 +28,9 @@ public class Movil {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Procesador procesador;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private TecnologiaPantalla tecnologiaPantalla;
 	private double ancho;
 	private double grosor;

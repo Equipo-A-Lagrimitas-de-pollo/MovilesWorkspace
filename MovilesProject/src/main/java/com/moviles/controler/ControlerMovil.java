@@ -35,7 +35,7 @@ public class ControlerMovil {
     }
 
     // Para buscar por marca
-    @GetMapping("find/{marca}")
+    @GetMapping("find")
     public ResponseEntity<List<Movil>> get(@RequestParam Long idMarca) {
         return ResponseEntity.ok(movilService.filterByMarca(idMarca));
     }
@@ -61,7 +61,7 @@ public class ControlerMovil {
     }
 
     // Ruta la cual aztualizara la puntuacion de cada movil
-    @PutMapping("updatePuntuacion/")
+    @PutMapping("updatePuntuacion")
     public ResponseEntity<Boolean> put(@RequestBody DTORequestPuntuacion requestPuntuacion) {
         return ResponseEntity.ok(movilService.updatePuntuacion(requestPuntuacion));
     }
