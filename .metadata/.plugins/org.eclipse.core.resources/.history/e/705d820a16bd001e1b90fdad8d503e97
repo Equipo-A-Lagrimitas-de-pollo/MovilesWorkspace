@@ -1,9 +1,0 @@
-package com.moviles.model.DTO;
-
-public class DTOMovilFilter {
-	public String marca;
-	public double precioMax;
-	public double precioMin;
-	public int ramMax;
-	public int ramMax;
-}

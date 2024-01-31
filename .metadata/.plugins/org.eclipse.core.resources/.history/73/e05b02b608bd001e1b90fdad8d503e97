@@ -1,5 +1,0 @@
-package com.moviles.mapper;
-
-public interface Mapper {
-
-}
