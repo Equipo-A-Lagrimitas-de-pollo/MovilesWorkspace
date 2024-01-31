@@ -29,6 +29,10 @@ public class ControllerModelo {
     public ResponseEntity<List<Modelo>> get() {
         return ResponseEntity.ok(modeloServiceImpl.getAll());
     }
+    @GetMapping("findById")
+    public ResponseEntity<Modelo> getById(@RequestParam Long id) {
+        return ResponseEntity.ok(modeloServiceImpl.getById(id).get());
+    }
 
     @DeleteMapping("delete")
     public ResponseEntity<Boolean> delete(@RequestParam Long id) {
