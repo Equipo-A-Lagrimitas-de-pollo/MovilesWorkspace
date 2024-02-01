@@ -17,7 +17,7 @@ public class MapDTOFilterToListFilter implements Mapper<DTOMovilFilter, List<Fil
 	@Override
 	public List<Filter<?>> map(DTOMovilFilter t) {
 		List<Filter<?>> filtros = new ArrayList<>();
-		FilterByMarca filterByMarca = new FilterByMarca(t.getIdMarca());
+		FilterByMarca filterByMarca = new FilterByMarca(t.getNombreMarca());
 		filtros.add(filterByMarca);
 		FilterByPrecio filterByPrecio = new FilterByPrecio(new Intervalo<>(t.getPrecioMin(),t.getPrecioMax()));
 		filtros.add(filterByPrecio);
