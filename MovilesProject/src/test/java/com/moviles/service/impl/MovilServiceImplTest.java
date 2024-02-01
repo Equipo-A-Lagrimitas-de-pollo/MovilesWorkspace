@@ -20,7 +20,10 @@ class MovilServiceImplTest {
 	@Test
 	void testFilter() {
 		List<Movil> listaMoviles = MovilOM.createMovil();
-		DTOMovilFilter dtoMovilFilter = new DTOMovilFilter("InventoCorp", 900.0, 1200.0, 0, 0, null, null);
+		for (Movil movil : listaMoviles) {
+			movilServiceImpl.save(movil);
+		}
+		DTOMovilFilter dtoMovilFilter = new DTOMovilFilter("InventoCorp", 900.0, 1200.0, 0, 0, true, null);
 		List<Movil> listaMovilFiltrada = movilServiceImpl.filter(dtoMovilFilter);
 		assertEquals(listaMovilFiltrada.size(), 2);
 	}
