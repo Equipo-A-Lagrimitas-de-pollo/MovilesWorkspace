@@ -17,11 +17,14 @@ public class TecnologiaPantalla {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Long referencia;
 	private String tipo;
-
-	public TecnologiaPantalla(String tipo) {
+	public TecnologiaPantalla(Long referencia, String tipo) {
 		super();
+		this.referencia = referencia;
 		this.tipo = tipo;
 	}
+
+	
 
 }

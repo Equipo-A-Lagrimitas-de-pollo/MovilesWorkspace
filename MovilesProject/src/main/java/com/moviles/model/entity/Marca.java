@@ -18,10 +18,11 @@ public class Marca {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nombre;
-
+	
 	public Marca(String nombre) {
 		super();
 		this.nombre = nombre;
 	}
+
 
 }

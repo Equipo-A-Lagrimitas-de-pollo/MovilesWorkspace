@@ -14,11 +14,11 @@ public class DTOModelo {
 	
 	private Long claveModelo;
 	
-	private Long claveMarca;
+	private String claveMarca;
 	
 	private String nombre;
 
-	public DTOModelo(Long claveMarca, String nombre) {
+	public DTOModelo(String claveMarca, String nombre) {
 		super();
 		this.claveMarca = claveMarca;
 		this.nombre = nombre;
