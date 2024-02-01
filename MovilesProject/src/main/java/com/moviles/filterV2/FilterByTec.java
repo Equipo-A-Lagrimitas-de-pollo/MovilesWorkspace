@@ -10,7 +10,7 @@ public class FilterByTec extends Filter<Long>{
 
 	@Override
 	public boolean filter(Movil item) {
-		return item.getTecId()==parameter;
+		return item.getReferencia()==parameter;
 	}
 
 }

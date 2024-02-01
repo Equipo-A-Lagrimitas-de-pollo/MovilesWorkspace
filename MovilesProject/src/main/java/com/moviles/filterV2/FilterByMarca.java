@@ -9,7 +9,7 @@ public class FilterByMarca extends Filter<String>{
 
 	@Override
 	public boolean filter(Movil item) {
-		return item.getMarcaId().equals(parameter);
+		return item.getNombreMarca().equals(parameter);
 	}
 
 }

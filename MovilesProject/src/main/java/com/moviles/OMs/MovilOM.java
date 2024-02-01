@@ -17,32 +17,32 @@ public class MovilOM {
 		// Móvil 1
 		listaMoviles.add(new Movil(new Modelo(new Marca("Iphone"), 1L, "Modelo1"),
 				new Procesador(1L, "ProcesadorX1", 8, 2.5), new TecnologiaPantalla(1L, "SuperAMOLED1"), 1L, 72.0, 8.5,
-				160.0, 6.3, 256, 12, 200.0, 64, true, 799.99, LocalDate.of(2022, 1, 30).minusMonths(1), 5));
+				160.0, 6.3, 256, 8, 200.0, 64, true, 799.99, LocalDate.of(2022, 1, 30).minusMonths(1), 5));
 
 		// Móvil 2
 		listaMoviles.add(new Movil(new Modelo(new Marca("Xiaomi"), 2L, "Modelo2"),
 				new Procesador(2L, "ProcesadorX2", 8, 2.6), new TecnologiaPantalla(2L, "SuperAMOLED2"), 2L, 73.0, 8.4,
-				165.0, 6.4, 272, 13, 210.0, 68, true, 849.99, LocalDate.of(2022, 1, 29).minusMonths(2), 6));
+				165.0, 6.4, 272, 4, 210.0, 68, true, 849.99, LocalDate.of(2022, 1, 29).minusMonths(2), 6));
 
 		// Móvil 3
 		listaMoviles.add(new Movil(new Modelo(new Marca("Samsung"), 3L, "Modelo3"),
 				new Procesador(3L, "ProcesadorX3", 8, 2.7), new TecnologiaPantalla(3L, "SuperAMOLED3"), 3L, 74.0, 8.3,
-				170.0, 6.5, 288, 14, 220.0, 128, false, 899.99, LocalDate.of(2022, 1, 28).minusMonths(3), 7));
+				170.0, 6.5, 288, 16, 220.0, 128, false, 899.99, LocalDate.of(2022, 1, 28).minusMonths(3), 7));
 
 		// Móvil 4
 		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 4L, "Modelo4"),
 				new Procesador(4L, "ProcesadorX4", 8, 2.8), new TecnologiaPantalla(4L, "SuperAMOLED4"), 4L, 75.0, 8.2,
-				175.0, 6.6, 304, 15, 230.0, 256, true, 999.99, LocalDate.of(2022, 1, 27).minusMonths(4), 8));
+				175.0, 6.6, 304, 8, 230.0, 256, true, 999.99, LocalDate.of(2022, 1, 27).minusMonths(4), 8));
 
 		// Móvil 5
 		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 5L, "Modelo5"),
 				new Procesador(5L, "ProcesadorX5", 8, 2.9), new TecnologiaPantalla(5L, "SuperAMOLED5"), 5L, 76.0, 8.1,
-				180.0, 6.7, 320, 16, 240.0, 512, false, 1099.99, LocalDate.of(2022, 1, 26).minusMonths(5), 9));
+				180.0, 6.7, 320, 8, 240.0, 512, false, 1099.99, LocalDate.of(2022, 1, 26).minusMonths(5), 9));
 
 		// Móvil 6
 		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 6L, "Modelo6"),
 				new Procesador(6L, "ProcesadorX6", 8, 3.0), new TecnologiaPantalla(6L, "SuperAMOLED6"), 6L, 77.0, 8.0,
-				185.0, 6.8, 336, 17, 250.0, 1024, true, 1199.99, LocalDate.of(2022, 1, 25).minusMonths(6), 10));
+				185.0, 6.8, 336, 4, 250.0, 1024, true, 1199.99, LocalDate.of(2022, 1, 25).minusMonths(6), 10));
 
 		// Móvil 7
 		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 7L, "Modelo7"),
