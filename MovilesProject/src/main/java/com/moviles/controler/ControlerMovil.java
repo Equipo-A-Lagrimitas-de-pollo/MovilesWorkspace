@@ -16,7 +16,6 @@ import com.moviles.model.DTO.DTOMovil;
 import com.moviles.model.DTO.DTOMovilFilter;
 import com.moviles.model.DTO.DTORequestPuntuacion;
 import com.moviles.model.DTO.DTOcompare;
-import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.service.impl.MovilServiceImpl;
 
@@ -39,6 +38,11 @@ public class ControlerMovil {
     @GetMapping("findByMarca")
     public ResponseEntity<List<DTOMovil>> getByMarca(@RequestParam String Marca) {
         return ResponseEntity.ok(movilService.filterByMarca(Marca));
+    }
+
+    @GetMapping("findById")
+    public ResponseEntity<DTOMovil> getById(@RequestBody MovilKey key) {
+        return ResponseEntity.ok(movilService.getById(key).get());
     }
 
     @DeleteMapping("delete")

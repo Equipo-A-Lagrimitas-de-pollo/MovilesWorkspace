@@ -23,11 +23,11 @@ import com.moviles.service.MovilService;
 import io.micrometer.common.lang.NonNull;
 
 @Service
-public class MovilServiceImpl implements MovilService,FilterService<List<DTOMovil>, DTOMovilFilter> {
+public class MovilServiceImpl implements MovilService, FilterService<List<DTOMovil>, DTOMovilFilter> {
 
 	private MovilRepository movilRepository;
 	private ModeloRepository modeloRepository;
-	
+
 	public MovilServiceImpl(MovilRepository movilRepository) {
 		this.movilRepository = movilRepository;
 	}
@@ -35,13 +35,13 @@ public class MovilServiceImpl implements MovilService,FilterService<List<DTOMovi
 	@Override
 	public List<DTOMovil> getAll() {
 		return this.movilRepository.findAll().stream()
-				.map(movilTomap->new MapperMovilDTO().mapToDto(movilTomap))
+				.map(movilTomap -> new MapperMovilDTO().mapToDto(movilTomap))
 				.toList();
 	}
 
 	@Override
 	public Optional<DTOMovil> getById(@NonNull MovilKey key) {
-		return this.movilRepository.findById(key).map(movil-> new MapperMovilDTO().mapToDto(movil));
+		return this.movilRepository.findById(key).map(movil -> new MapperMovilDTO().mapToDto(movil));
 	}
 
 	@Override
@@ -51,10 +51,12 @@ public class MovilServiceImpl implements MovilService,FilterService<List<DTOMovi
 
 	@Override
 	public boolean update(DTOMovil dto) {
-		if(modeloRepository.findById(dto.getClaveModelo()).isPresent()){
-			return this.movilRepository.findById(new MovilKey(modeloRepository.findById(dto.getClaveModelo()).get(), dto.getClaveMovil())).isPresent()
-					? save(dto)
-					: false;
+		if (modeloRepository.findById(dto.getClaveModelo()).isPresent()) {
+			return this.movilRepository
+					.findById(new MovilKey(modeloRepository.findById(dto.getClaveModelo()).get(), dto.getClaveMovil()))
+					.isPresent()
+							? save(dto)
+							: false;
 		}
 		return false;
 	}
@@ -75,15 +77,15 @@ public class MovilServiceImpl implements MovilService,FilterService<List<DTOMovi
 	@Override
 	public List<DTOMovil> findTopMovil() {
 		return this.movilRepository.findTop5ByOrderByPuntuacionDesc().stream()
-				.map(movil->new MapperMovilDTO().mapToDto(movil)).toList();
+				.map(movil -> new MapperMovilDTO().mapToDto(movil)).toList();
 	}
 
 	@Override
 	public List<DTOMovil> filterByMarca(String marca) {
-	 return this.movilRepository.findAll().stream().filter(movil -> {
+		return this.movilRepository.findAll().stream().filter(movil -> {
 			return movil.getMarcaId().equals(marca);
-		}).map(movilToMap->new MapperMovilDTO().mapToDto(movilToMap)).toList();
-	 
+		}).map(movilToMap -> new MapperMovilDTO().mapToDto(movilToMap)).toList();
+
 	}
 
 	@Override
@@ -97,15 +99,15 @@ public class MovilServiceImpl implements MovilService,FilterService<List<DTOMovi
 	@Override
 	public List<DTOMovil> filter(DTOMovilFilter parametros) {
 		List<Movil> toFilter = getAllMoviles();
-		List<Filter<?>> filtros= new MapDTOFilterToListFilter().map(parametros);
+		List<Filter<?>> filtros = new MapDTOFilterToListFilter().map(parametros);
 		for (Filter<?> filter : filtros) {
-			toFilter=toFilter.stream().filter(movil->filter.filter(movil)).toList();
+			toFilter = toFilter.stream().filter(movil -> filter.filter(movil)).toList();
 		}
-		return toFilter.stream().map(movil-> new MapperMovilDTO().mapToDto(movil)).toList();	
-		
+		return toFilter.stream().map(movil -> new MapperMovilDTO().mapToDto(movil)).toList();
+
 	}
-	
-	public List<Movil> getAllMoviles(){
+
+	public List<Movil> getAllMoviles() {
 		return movilRepository.findAll();
 	}
 
