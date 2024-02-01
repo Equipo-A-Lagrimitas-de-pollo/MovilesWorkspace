@@ -16,15 +16,19 @@ public class Procesador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private Long referencia;
 	private String nombre;
 	private int numeronucleos;
 	private double gigaHerziosMaximos;
-
-	public Procesador(String nombre, int numeronucleos, double gigaHerziosMaximos) {
+	
+	public Procesador(Long referencia, String nombre, int numeronucleos, double gigaHerziosMaximos) {
 		super();
+		this.referencia = referencia;
 		this.nombre = nombre;
 		this.numeronucleos = numeronucleos;
 		this.gigaHerziosMaximos = gigaHerziosMaximos;
 	}
+
+
 
 }
