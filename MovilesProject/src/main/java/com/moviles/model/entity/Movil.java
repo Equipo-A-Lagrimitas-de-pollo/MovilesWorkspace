@@ -50,6 +50,10 @@ public class Movil {
 	public Long getMarcaId() {
 		return modelo.getMarcaId();
 	}
+	
+	public String getNombreMarca() {
+		return modelo.getNombreMarca();
+	}
 
 	public Long getTecId() {
 		return tecnologiaPantalla.getId();
