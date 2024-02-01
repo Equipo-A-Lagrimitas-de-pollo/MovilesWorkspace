@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.moviles.model.DTO.DTOModelo;
 import com.moviles.model.entity.Modelo;
 import com.moviles.service.impl.ModeloServiceImpl;
 
@@ -26,11 +27,12 @@ public class ControllerModelo {
     }
 
     @GetMapping("find")
-    public ResponseEntity<List<Modelo>> get() {
+    public ResponseEntity<List<DTOModelo>> get() {
         return ResponseEntity.ok(modeloServiceImpl.getAll());
     }
+
     @GetMapping("findById")
-    public ResponseEntity<Modelo> getById(@RequestParam Long id) {
+    public ResponseEntity<DTOModelo> getById(@RequestParam Long id) {
         return ResponseEntity.ok(modeloServiceImpl.getById(id).get());
     }
 
@@ -40,12 +42,12 @@ public class ControllerModelo {
     }
 
     @PostMapping("create")
-    public ResponseEntity<Boolean> post(@RequestBody Modelo modelo) {
+    public ResponseEntity<Boolean> post(@RequestBody DTOModelo modelo) {
         return ResponseEntity.ok(modeloServiceImpl.save(modelo));
     }
 
     @PutMapping("update")
-    public ResponseEntity<Boolean> put(@RequestBody Modelo modelo) {
+    public ResponseEntity<Boolean> put(@RequestBody DTOModelo modelo) {
         return ResponseEntity.ok(modeloServiceImpl.save(modelo));
     }
 }

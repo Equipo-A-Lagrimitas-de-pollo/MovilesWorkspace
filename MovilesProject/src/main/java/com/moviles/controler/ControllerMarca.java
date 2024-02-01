@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.moviles.model.DTO.DTOMarca;
 import com.moviles.model.entity.Marca;
 import com.moviles.service.impl.MarcaServiceImpl;
 
@@ -26,11 +27,12 @@ public class ControllerMarca {
     }
 
     @GetMapping("find")
-    public ResponseEntity<List<Marca>> get() {
+    public ResponseEntity<List<DTOMarca>> get() {
         return ResponseEntity.ok(marcaServiceImpl.getAll());
     }
+
     @GetMapping("findById")
-    public ResponseEntity<Marca> getById(@RequestParam Long id) {
+    public ResponseEntity<DTOMarca> getById(@RequestParam Long id) {
         return ResponseEntity.ok(marcaServiceImpl.getById(id).get());
     }
 
@@ -40,7 +42,7 @@ public class ControllerMarca {
     }
 
     @PostMapping("create")
-    public ResponseEntity<Boolean> post(@RequestBody Marca marca) {
+    public ResponseEntity<Boolean> post(@RequestBody DTOMarca marca) {
         return ResponseEntity.ok(marcaServiceImpl.save(marca));
     }
 

@@ -1,6 +1,7 @@
 package com.moviles.model.DTO;
 
 import java.time.LocalDate;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +13,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class DTOMovil {
 
-
 	private Long claveModelo;
-	
 	private Long claveMovil;
-	
 	private Long claveProcesador;
-
 	private Long claveTecnologiaPantalla;
 	private double ancho;
 	private double grosor;

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.moviles.model.DTO.DTOProcesador;
 import com.moviles.model.entity.Procesador;
 import com.moviles.service.ProcesadorService;
 
@@ -24,11 +25,12 @@ public class ControllerProcesador {
     }
 
     @GetMapping("find")
-    public ResponseEntity<java.util.List<Procesador>> get() {
+    public ResponseEntity<java.util.List<DTOProcesador>> get() {
         return ResponseEntity.ok(procesadorService.getAll());
     }
+
     @GetMapping("findById")
-    public ResponseEntity<Procesador> getById(@RequestParam Long id) {
+    public ResponseEntity<DTOProcesador> getById(@RequestParam Long id) {
         return ResponseEntity.ok(procesadorService.getById(id).get());
     }
 
@@ -38,7 +40,7 @@ public class ControllerProcesador {
     }
 
     @PostMapping("create")
-    public ResponseEntity<Boolean> post(@RequestBody Procesador procesador) {
+    public ResponseEntity<Boolean> post(@RequestBody DTOProcesador procesador) {
         return ResponseEntity.ok(procesadorService.save(procesador));
     }
 
