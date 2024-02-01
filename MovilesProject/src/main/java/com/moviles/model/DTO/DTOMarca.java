@@ -9,12 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class DTOMarca {
-	private Long claveMarca;
 	private String nombre;
-
-	public DTOMarca(String nombre) {
-		super();
-		this.nombre = nombre;
-	}
-
 }

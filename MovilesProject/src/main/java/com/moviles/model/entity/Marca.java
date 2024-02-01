@@ -17,12 +17,10 @@ public class Marca {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private Long referencia;
 	private String nombre;
 	
-	public Marca(Long referencia, String nombre) {
+	public Marca(String nombre) {
 		super();
-		this.referencia = referencia;
 		this.nombre = nombre;
 	}
 
