@@ -31,6 +31,7 @@ public class MapDTOFilterToListFilter implements Mapper<DTOMovilFilter, List<Fil
 		}
 		if (t.getIdTecnologiaPantalla() != null) {
 			FilterByTec filterByTec = new FilterByTec(t.getIdTecnologiaPantalla());
+			filtros.add(filterByTec);
 		}
 		return filtros;
 	}
