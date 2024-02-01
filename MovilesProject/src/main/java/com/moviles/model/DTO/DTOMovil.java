@@ -1,6 +1,8 @@
-package com.moviles.model.entity;
+package com.moviles.model.DTO;
 
 import java.time.LocalDate;
+
+import com.moviles.model.entity.Modelo;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -15,24 +17,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
 @Data
-@IdClass(value = MovilKey.class)
-public class Movil {
+//@IdClass(value = DTOMovilKey.class)
+public class DTOMovil {
 
 	@Id
-	@ManyToOne
-	private Modelo modelo;
+	private Long claveModelo;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Procesador procesador;
-	@ManyToOne(cascade = CascadeType.ALL)
-	private TecnologiaPantalla tecnologiaPantalla;
+	private Long claveMovil;
+	
+	private Long claveProcesador;
+
+	private Long claveTecnologiaPantalla;
 	private double ancho;
 	private double grosor;
 	private double alto;
@@ -47,20 +47,20 @@ public class Movil {
 	private int puntuacion;
 
 	public Long getMarcaId() {
-		return modelo.getMarcaId();
+		return claveModelo.getMarcaId();
 	}
 
 	public Long getTecId() {
-		return tecnologiaPantalla.getId();
+		return claveTecnologiaPantalla.getId();
 	}
 
-	public Movil(Modelo modelo, Procesador procesador, TecnologiaPantalla tecnologiaPantalla, double ancho,
+	public DTOMovil(Long claveModelo, Long claveProcesador, Long claveTecnologiaPantalla, double ancho,
 			double grosor, double alto, double tamanoPantalla, int almacenamiento, int ram, double peso,
 			int megaPixeles, boolean nfc, double precio, LocalDate fechaLanzamiento, int puntuacion) {
 		super();
-		this.modelo = modelo;
-		this.procesador = procesador;
-		this.tecnologiaPantalla = tecnologiaPantalla;
+		this.claveModelo = claveModelo;
+		this.claveProcesador = claveProcesador;
+		this.claveTecnologiaPantalla = claveTecnologiaPantalla;
 		this.ancho = ancho;
 		this.grosor = grosor;
 		this.alto = alto;
