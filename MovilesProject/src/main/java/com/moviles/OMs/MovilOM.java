@@ -11,21 +11,21 @@ import com.moviles.model.entity.Procesador;
 import com.moviles.model.entity.TecnologiaPantalla;
 
 public class MovilOM {
-	public static void createMovil(String[] args) {
+	public static List<Movil> createMovil() {
 		List<Movil> listaMoviles = new ArrayList<>();
 
 		// Móvil 1
-		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 1L, "Modelo1"),
+		listaMoviles.add(new Movil(new Modelo(new Marca("Iphone"), 1L, "Modelo1"),
 				new Procesador(1L, "ProcesadorX1", 8, 2.5), new TecnologiaPantalla(1L, "SuperAMOLED1"), 1L, 72.0, 8.5,
 				160.0, 6.3, 256, 12, 200.0, 64, true, 799.99, LocalDate.of(2022, 1, 30).minusMonths(1), 5));
 
 		// Móvil 2
-		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 2L, "Modelo2"),
+		listaMoviles.add(new Movil(new Modelo(new Marca("Xiaomi"), 2L, "Modelo2"),
 				new Procesador(2L, "ProcesadorX2", 8, 2.6), new TecnologiaPantalla(2L, "SuperAMOLED2"), 2L, 73.0, 8.4,
 				165.0, 6.4, 272, 13, 210.0, 68, true, 849.99, LocalDate.of(2022, 1, 29).minusMonths(2), 6));
 
 		// Móvil 3
-		listaMoviles.add(new Movil(new Modelo(new Marca("InventoCorp"), 3L, "Modelo3"),
+		listaMoviles.add(new Movil(new Modelo(new Marca("Samsung"), 3L, "Modelo3"),
 				new Procesador(3L, "ProcesadorX3", 8, 2.7), new TecnologiaPantalla(3L, "SuperAMOLED3"), 3L, 74.0, 8.3,
 				170.0, 6.5, 288, 14, 220.0, 128, false, 899.99, LocalDate.of(2022, 1, 28).minusMonths(3), 7));
 
@@ -90,6 +90,7 @@ public class MovilOM {
 				new Procesador(15L, "ProcesadorX15", 8, 3.9), new TecnologiaPantalla(15L, "SuperAMOLED15"), 15L, 86.0,
 				7.1, 230.0, 7.7, 480, 26, 340.0, 524288, false, 2099.99, LocalDate.of(2022, 1, 16).minusMonths(15),
 				19));
+		return listaMoviles;
 
 	}
 }
