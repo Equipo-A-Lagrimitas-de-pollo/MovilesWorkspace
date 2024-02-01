@@ -19,12 +19,12 @@ public class DTOMovilFilter {
 	private double precioMax;
 	@NotNull
 	@Positive
-	@Value("1")
+	@Value("0")
 	private double precioMin;
 	@Positive
 	private int ramMax;
 	@Positive
-	@Value("1")
+	@Value("0")
 	private int ramMin;
 	private Boolean nfc;
 	private Long idTecnologiaPantalla;

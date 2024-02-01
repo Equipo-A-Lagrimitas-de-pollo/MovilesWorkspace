@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DTOMovilKey implements Serializable {
+public class DTOMovilKey {
 	private Modelo modelo;
 	private Long claveMovilKey;
 
