@@ -1,17 +1,6 @@
 package com.moviles.model.DTO;
 
 import java.time.LocalDate;
-
-import com.moviles.model.entity.Modelo;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,13 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Data
-//@IdClass(value = DTOMovilKey.class)
 public class DTOMovil {
 
 
 	private Long claveModelo;
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveMovil;
 	
 	private Long claveProcesador;
@@ -45,14 +32,6 @@ public class DTOMovil {
 	private double precio;
 	private LocalDate fechaLanzamiento;
 	private int puntuacion;
-
-	public Long getMarcaId() {
-		return claveModelo.getMarcaId();
-	}
-
-	public Long getTecId() {
-		return claveTecnologiaPantalla.getId();
-	}
 
 	public DTOMovil(Long claveModelo, Long claveProcesador, Long claveTecnologiaPantalla, double ancho,
 			double grosor, double alto, double tamanoPantalla, int almacenamiento, int ram, double peso,

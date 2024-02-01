@@ -1,9 +1,5 @@
 package com.moviles.model.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class DTOProcesador {
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveProcesador;
 	private String nombre;
 	private int numeronucleos;
