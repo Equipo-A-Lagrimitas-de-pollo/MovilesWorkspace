@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class Movil {
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	private Modelo modelo;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
