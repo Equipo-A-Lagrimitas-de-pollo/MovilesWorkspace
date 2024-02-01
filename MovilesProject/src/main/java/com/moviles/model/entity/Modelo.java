@@ -24,12 +24,15 @@ public class Modelo {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Marca marca;
 	private Long referencia;
-	
 	private String nombre;
 
 	public Long getMarcaId() {
 		return marca.getId();
 
+	}
+	
+	public String getNombreMarca() {
+		return marca.getNombre();
 	}
 
 	public Modelo(Marca marca, Long referencia, String nombre) {
