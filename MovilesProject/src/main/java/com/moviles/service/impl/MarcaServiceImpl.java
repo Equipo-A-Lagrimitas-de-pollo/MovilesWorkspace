@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.moviles.mapper.MapperMarcaDTO;
+import com.moviles.model.DTO.DTOMarca;
 import com.moviles.model.entity.Marca;
 import com.moviles.repositories.MarcaRepository;
 import com.moviles.service.MarcaService;
@@ -19,24 +21,26 @@ public class MarcaServiceImpl implements MarcaService{
     }
 
     @Override
-    public Optional<Marca> getById(Long id) {
-        return this.marcaRepository.findById(id);
+    public Optional<DTOMarca> getById(Long id) {
+        return this.marcaRepository.findById(id).map(movil-> new MapperMarcaDTO().mapToDto(movil));
     }
 
     @Override
-    public List<Marca> getAll() {
-        return this.marcaRepository.findAll();
+    public List<DTOMarca> getAll() {
+        return this.marcaRepository.findAll().stream()
+        		.map(movil->new MapperMarcaDTO().mapToDto(movil)).toList();
     }
 
     @Override
-    public boolean save(Marca entity) {
-        return this.marcaRepository.save(entity) != null;
+    public boolean save(DTOMarca dto) {
+        return this.marcaRepository.save(new MapperMarcaDTO().mapToEntity(dto)) != null;
 
     }
 
     @Override
-    public boolean update(Marca entity) {
-        return this.marcaRepository.findById(entity.getId()).isPresent() ? save(entity) : false;
+    public boolean update(DTOMarca dto) {
+    	Marca entity = new MapperMarcaDTO().mapToEntity(dto);
+        return this.marcaRepository.findById(entity.getId()).isPresent() ? save(dto) : false;
     }
 
     @Override

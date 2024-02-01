@@ -45,7 +45,7 @@ public class ControllerProcesador {
     }
 
     @PutMapping("update")
-    public ResponseEntity<Boolean> put(@RequestBody Procesador updateObject) {
+    public ResponseEntity<Boolean> put(@RequestBody DTOProcesador updateObject) {
         return ResponseEntity.ok(procesadorService.update(updateObject));
     }
 

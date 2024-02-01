@@ -37,8 +37,8 @@ public class ControlerMovil {
 
     // Para buscar por marca
     @GetMapping("findByMarca")
-    public ResponseEntity<List<DTOMovil>> getByMarca(@RequestParam Long idMarca) {
-        return ResponseEntity.ok(movilService.filterByMarca(idMarca));
+    public ResponseEntity<List<DTOMovil>> getByMarca(@RequestParam String Marca) {
+        return ResponseEntity.ok(movilService.filterByMarca(Marca));
     }
 
     @DeleteMapping("delete")
@@ -52,7 +52,7 @@ public class ControlerMovil {
     }
 
     @PutMapping("update")
-    public ResponseEntity<Boolean> put(@RequestBody Movil movil) {
+    public ResponseEntity<Boolean> put(@RequestBody DTOMovil movil) {
         return ResponseEntity.ok(movilService.update(movil));
     }
 

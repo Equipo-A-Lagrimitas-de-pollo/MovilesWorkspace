@@ -1,7 +1,7 @@
 package com.moviles.service;
 
-import com.moviles.model.entity.TecnologiaPantalla;
+import com.moviles.model.DTO.DTOTecnologiaPantalla;
 
-public interface TecnologiaPantallaService extends DataService<TecnologiaPantalla, Long> {
+public interface TecnologiaPantallaService extends DataService<DTOTecnologiaPantalla, Long> {
 
 }

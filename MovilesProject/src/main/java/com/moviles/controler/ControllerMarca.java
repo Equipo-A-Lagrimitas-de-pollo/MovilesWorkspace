@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.DTO.DTOMarca;
-import com.moviles.model.entity.Marca;
 import com.moviles.service.impl.MarcaServiceImpl;
 
 @RestController
@@ -47,7 +46,7 @@ public class ControllerMarca {
     }
 
     @PutMapping("update")
-    public ResponseEntity<Boolean> put(@RequestBody Marca marca) {
+    public ResponseEntity<Boolean> put(@RequestBody DTOMarca marca) {
         return ResponseEntity.ok(marcaServiceImpl
                 .update(marca));
     }

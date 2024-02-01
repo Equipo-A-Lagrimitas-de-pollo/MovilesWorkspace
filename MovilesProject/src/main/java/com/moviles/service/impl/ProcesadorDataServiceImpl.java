@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.moviles.mapper.MapperProcesadorDTO;
+import com.moviles.model.DTO.DTOProcesador;
 import com.moviles.model.entity.Procesador;
 import com.moviles.repositories.ProcesadorRepository;
 import com.moviles.service.ProcesadorService;
@@ -19,23 +21,25 @@ public class ProcesadorDataServiceImpl implements ProcesadorService {
 	}
 
 	@Override
-	public Optional<Procesador> getById(Long id) {
-		return procesadorRepository.findById(id);
+	public Optional<DTOProcesador> getById(Long id) {
+		return procesadorRepository.findById(id).map(procesador->new MapperProcesadorDTO().mapToDto(procesador));
 	}
 
 	@Override
-	public List<Procesador> getAll() {
-		return procesadorRepository.findAll();
+	public List<DTOProcesador> getAll() {
+		return procesadorRepository.findAll().stream()
+				.map(procesador->new MapperProcesadorDTO().mapToDto(procesador)).toList();
 	}
 
 	@Override
-	public boolean save(Procesador entity) {
-		return this.procesadorRepository.save(entity) != null ? true : false;
+	public boolean save(DTOProcesador dto) {
+		return this.procesadorRepository.save(new MapperProcesadorDTO().mapToEntity(dto)) != null ? true : false;
 	}
 
 	@Override
-	public boolean update(Procesador entity) {
-		return getById(entity.getId()).isPresent() ? save(entity) : false;
+	public boolean update(DTOProcesador dto) {
+		Procesador procesador = new MapperProcesadorDTO().mapToEntity(dto);
+		return getById(procesador.getId()).isPresent() ? save(new MapperProcesadorDTO().mapToDto(procesador)) : false;
 
 	}
 

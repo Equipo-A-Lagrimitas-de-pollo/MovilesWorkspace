@@ -1,7 +1,7 @@
 package com.moviles.service;
 
-import com.moviles.model.entity.Marca;
+import com.moviles.model.DTO.DTOMarca;
 
-public interface MarcaService extends DataService<Marca, Long> {
+public interface MarcaService extends DataService<DTOMarca, Long> {
 
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.moviles.model.DTO.DTOMovilFilter;
+import com.moviles.model.DTO.DTOTecnologiaPantalla;
 import com.moviles.model.entity.TecnologiaPantalla;
 import com.moviles.service.TecnologiaPantallaService;
 
@@ -27,12 +28,12 @@ public class ControllerTecnologiaPantalla {
     }
 
     @GetMapping("find")
-    public ResponseEntity<List<DTOMovilFilter>> get() {
+    public ResponseEntity<List<DTOTecnologiaPantalla>> get() {
         return ResponseEntity.ok(pantallaService.getAll());
     }
 
     @GetMapping("findById")
-    public ResponseEntity<TecnologiaPantalla> getById(@RequestParam Long id) {
+    public ResponseEntity<DTOTecnologiaPantalla> getById(@RequestParam Long id) {
         return ResponseEntity.ok(pantallaService.getById(id).get());
     }
 
@@ -42,12 +43,12 @@ public class ControllerTecnologiaPantalla {
     }
 
     @PostMapping("crear")
-    public ResponseEntity<Boolean> post(@RequestBody DTOMovilFilter tecnologiaPantalla) {
+    public ResponseEntity<Boolean> post(@RequestBody DTOTecnologiaPantalla tecnologiaPantalla) {
         return ResponseEntity.ok(pantallaService.save(tecnologiaPantalla));
     }
 
     @PutMapping("update")
-    public ResponseEntity<Boolean> put(@RequestBody DTOMovilFilter tecnologiaPantalla) {
+    public ResponseEntity<Boolean> put(@RequestBody DTOTecnologiaPantalla tecnologiaPantalla) {
         return ResponseEntity.ok(pantallaService.update(tecnologiaPantalla));
 
     }
