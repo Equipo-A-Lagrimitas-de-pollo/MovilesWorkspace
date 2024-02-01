@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class DTOProcesador {
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveProcesador;
 	private String nombre;

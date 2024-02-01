@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class DTOMarca {
 
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveMarca;
 	private String nombre;

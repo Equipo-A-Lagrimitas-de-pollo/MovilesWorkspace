@@ -24,9 +24,9 @@ import lombok.NoArgsConstructor;
 //@IdClass(value = DTOMovilKey.class)
 public class DTOMovil {
 
-	@Id
+
 	private Long claveModelo;
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveMovil;
 	

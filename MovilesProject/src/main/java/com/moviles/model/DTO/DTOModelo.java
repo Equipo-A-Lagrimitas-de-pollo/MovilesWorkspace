@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class DTOModelo {
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long claveModelo;
 	

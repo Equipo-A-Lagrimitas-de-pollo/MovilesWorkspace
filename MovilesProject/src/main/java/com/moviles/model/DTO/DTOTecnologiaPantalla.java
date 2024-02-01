@@ -15,7 +15,7 @@ package com.moviles.model.DTO;
 	@Data
 	public class DTOTecnologiaPantalla {
 
-		@Id
+		
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Long claveTecnologiaPantalla;
 		private String tipo;
