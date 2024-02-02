@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "c3709ca0-341d-40b3-a767-ae98000e983d",
+		"name": "Moviles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26161507",
+		"_collection_link": "https://apispringmoviles.postman.co/workspace/ApiSpringMoviles~b3e150e4-a7d2-45c9-8c87-3342d2fd9e8c/collection/26161507-c3709ca0-341d-40b3-a767-ae98000e983d?action=share&source=collection_link&creator=26161507"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movil/find",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {    \"modelo\":{\r\n        \"id\":2,\r\n      \"nombre\": \"Pixel 7a\",\r\n      \"marca\": {\r\n        \"id\":4,\r\n        \"nombre\": \"Google\"\r\n      }\r\n    },\r\n    \"id\":2\r\n    }\r\n   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movil/findById",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"findById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByMarca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"modelo\":{\r\n        \"id\":2,\r\n      \"nombre\": \"Samsumg Galaxy 50\",\r\n      \"marca\": {\r\n        \"id\":3,\r\n        \"nombre\": \"Samsung\"\r\n      }\r\n    },\r\n    \"id\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movil/findByMarca?idMarca=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"findByMarca"
+					],
+					"query": [
+						{
+							"key": "idMarca",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "compareTo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key1\":{\r\n \"modelo\": {\r\n            \"id\": 1,\r\n            \"marca\": {\r\n                \"id\": 1,\r\n                \"nombre\": \"Google\"\r\n            },\r\n            \"nombre\": \"Pixel 7a\",\r\n            \"marcaId\": 1\r\n        },\r\n        \"id\": 1\r\n    },\r\n    \r\n    \"key2\":{\r\n     \"modelo\": {\r\n            \"id\": 2,\r\n            \"marca\": {\r\n                \"id\": 2,\r\n                \"nombre\": \"Google\"\r\n            },\r\n            \"nombre\": \"Pixel 7a 64GB\",\r\n            \"marcaId\": 2\r\n        },\r\n        \"id\": 2\r\n\r\n}\r\n   \r\n   \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movil/compareMovile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"compareMovile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n {\r\n    \"modelo\":{\r\n        \"id\":2,\r\n      \"nombre\": \"Pixel 7a\",\r\n      \"marca\": {\r\n        \"id\":4,\r\n        \"nombre\": \"Google\"\r\n      }\r\n    },\r\n    \"id\":2,\r\n    \"procesador\":{\r\n        \"id\":1,\r\n        \"nombre\":\"nola\",\r\n        \"numeronucleos\":3,\r\n        \"gigaHerziosMaximos\":3\r\n    },\r\n    \"tecnologiaPantalla\":{\r\n      \"id\":1,\r\n      \"tipo\":\"tipo1\"\r\n        \r\n    } ,\r\n    \"ancho\": 15.0,\r\n    \"grosor\": 1.2,\r\n    \"alto\": 8.5,\r\n    \"tamanoPantalla\": 6.0,\r\n    \"almacenamiento\": 256,\r\n    \"ram\": 8,\r\n    \"peso\": 0.8,\r\n    \"megaPixeles\": 12,\r\n    \"nfc\": true,\r\n    \"precio\": 799.99,\r\n    \"fechaLanzamiento\": \"2023-01-30\",\r\n    \"puntuacion\": 7\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movil/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movil/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movil/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePuntuacion",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movil/updatePuntuacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"updatePuntuacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topMovil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/movil/topMovil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"topMovil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombreMarca\": \"Google\",\r\n  \"precioMax\": 300.0,\r\n  \"precioMin\": 200.0,\r\n  \"ramMax\": 8,\r\n  \"ramMin\": 8,\r\n  \"nfc\": true,\r\n  \"idTecnologiaPantalla\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/movil/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"movil",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

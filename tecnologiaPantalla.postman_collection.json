@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "6e0faec7-9bbf-41aa-afc9-ee336f19efd3",
+		"name": "tecnologiaPantalla",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26161507",
+		"_collection_link": "https://apispringmoviles.postman.co/workspace/ApiSpringMoviles~b3e150e4-a7d2-45c9-8c87-3342d2fd9e8c/collection/26161507-6e0faec7-9bbf-41aa-afc9-ee336f19efd3?action=share&source=collection_link&creator=26161507"
+	},
+	"item": [
+		{
+			"name": "find",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tecnologiaPantalla/find",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tecnologiaPantalla",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tecnologiaPantalla/findById?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tecnologiaPantalla",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tecnologiaPantalla/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tecnologiaPantalla",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":1,\r\n\"tipo\":\"tipo1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tecnologiaPantalla/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tecnologiaPantalla",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tecnologiaPantalla/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tecnologiaPantalla",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
