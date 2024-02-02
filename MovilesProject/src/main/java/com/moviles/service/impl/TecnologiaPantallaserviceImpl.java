@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.moviles.mapper.MapperProcesadorDTO;
 import com.moviles.mapper.MapperTecnologiaPantallaDTO;
+import com.moviles.model.DTO.DTOProcesador;
 import com.moviles.model.DTO.DTOTecnologiaPantalla;
 import com.moviles.model.entity.TecnologiaPantalla;
 import com.moviles.repositories.TecnologiaPantallaRepository;
@@ -48,5 +50,15 @@ public class TecnologiaPantallaserviceImpl implements TecnologiaPantallaService 
         this.tecnologiaPantallaRepository.deleteById(id);
         return !this.tecnologiaPantallaRepository.findById(id).isPresent();
     }
+	  public boolean deleteByTipo(String tipo) {
+	       	tecnologiaPantallaRepository.deleteByTipo(tipo);
+	        return !this.tecnologiaPantallaRepository.findByTipo(tipo).isPresent();
+	    }
+	    
+	  @Override
+		public Optional<DTOTecnologiaPantalla> getByTipo(String tipo) {
+			return this.tecnologiaPantallaRepository.findByTipo(tipo).map(tecnologiaPantalla->new MapperTecnologiaPantallaDTO().mapToDto(tecnologiaPantalla));
+		}
+
 
 }
