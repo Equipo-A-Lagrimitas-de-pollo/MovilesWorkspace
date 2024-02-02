@@ -30,15 +30,16 @@ public class ControllerMarca {
         return ResponseEntity.ok(marcaServiceImpl.getAll());
     }
 
-    @GetMapping("findById")
-    public ResponseEntity<DTOMarca> getById(@RequestParam Long id) {
-        return ResponseEntity.ok(marcaServiceImpl.getById(id).get());
+    @GetMapping("findByNombre")
+    public ResponseEntity<DTOMarca> getById(@RequestParam String nombre) {
+        return ResponseEntity.ok(marcaServiceImpl.getByNombre(nombre).get());
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<Boolean> delete(@RequestParam Long id) {
-        return ResponseEntity.ok(marcaServiceImpl.delete(id));
+    public ResponseEntity<Boolean> delete(@RequestParam String nombre) {
+        return ResponseEntity.ok(marcaServiceImpl.deleteByNombre(nombre));
     }
+    
 
     @PostMapping("create")
     public ResponseEntity<Boolean> post(@RequestBody DTOMarca marca) {

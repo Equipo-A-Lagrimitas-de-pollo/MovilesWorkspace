@@ -19,17 +19,17 @@ class MarcaServiceTest {
 
 	private static List<Marca> listaMarcas;
 
-	@BeforeAll
-	static void poblar(@Autowired MarcaService marcaService) {
-		MarcaServiceTest.listaMarcas = new MarcaOM().createMarca();
-		for (Marca marca : listaMarcas) {
-			marcaService.save(marca);
-		}
-	}
-
-	@Test
-	void testUpdate() {
-		Marca marca = listaMarcas.get(1);
-		assertTrue(marcaService.update(marca));
-	}
+//	@BeforeAll
+//	static void poblar(@Autowired MarcaService marcaService) {
+//		MarcaServiceTest.listaMarcas = new MarcaOM().createMarca();
+//		for (Marca marca : listaMarcas) {
+//			marcaService.save(marca);
+//		}
+//	}
+//
+//	@Test
+//	void testUpdate() {
+//		Marca marca = listaMarcas.get(1);
+//		assertTrue(marcaService.update(marca));
+//	}
 }

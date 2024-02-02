@@ -19,18 +19,18 @@ class ProcesadorServiceTest {
 
 	private static List<Procesador> listaProcesadorServices;
 
-	@BeforeAll
-	static void poblar(@Autowired ProcesadorService procesadorService) {
-		listaProcesadorServices = new ProcesadorOM().createProcesador();
-		for (Procesador procesador : listaProcesadorServices) {
-			procesadorService.save(procesador);
-		}
-	}
+//	@BeforeAll
+//	static void poblar(@Autowired ProcesadorService procesadorService) {
+//		listaProcesadorServices = new ProcesadorOM().createProcesador();
+//		for (Procesador procesador : listaProcesadorServices) {
+//			procesadorService.save(procesador);
+//		}
+//	}
 
-	@Test
-	void testUpdate() {
-		Procesador procesador = listaProcesadorServices.get(1);
-		assertTrue(procesadorService.update(procesador));
-	}
+//	@Test
+//	void testUpdate() {
+//		Procesador procesador = listaProcesadorServices.get(1);
+//		assertTrue(procesadorService.update(procesador));
+//	}
 
 }

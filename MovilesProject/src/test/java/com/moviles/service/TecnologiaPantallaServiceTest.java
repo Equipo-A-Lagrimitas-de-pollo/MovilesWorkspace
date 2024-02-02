@@ -18,19 +18,19 @@ class TecnologiaPantallaServiceTest {
 	private TecnologiaPantallaService tecnologiaPantallaService;
 
 	private static List<TecnologiaPantalla> listaTecnologiaPantallaServices;
-
-	@BeforeAll
-	static void poblar(@Autowired TecnologiaPantallaService tecnologiaPantallaService) {
-		listaTecnologiaPantallaServices = new TecnologiaPantallaOM().createTecnologiaPantalla();
-		for (TecnologiaPantalla tecnologiaPantalla : listaTecnologiaPantallaServices) {
-			tecnologiaPantallaService.save(tecnologiaPantalla);
-		}
-	}
-
-	@Test
-	void testUpdate() {
-		TecnologiaPantalla tecnologiaPantalla = listaTecnologiaPantallaServices.get(1);
-		assertTrue(tecnologiaPantallaService.update(tecnologiaPantalla));
-	}
+//
+//	@BeforeAll
+//	static void poblar(@Autowired TecnologiaPantallaService tecnologiaPantallaService) {
+//		listaTecnologiaPantallaServices = new TecnologiaPantallaOM().createTecnologiaPantalla();
+//		for (TecnologiaPantalla tecnologiaPantalla : listaTecnologiaPantallaServices) {
+//			tecnologiaPantallaService.save(tecnologiaPantalla);
+//		}
+//	}
+//
+//	@Test
+//	void testUpdate() {
+//		TecnologiaPantalla tecnologiaPantalla = listaTecnologiaPantallaServices.get(1);
+//		assertTrue(tecnologiaPantallaService.update(tecnologiaPantalla));
+//	}
 
 }

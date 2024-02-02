@@ -48,5 +48,15 @@ public class MarcaServiceImpl implements MarcaService{
         marcaRepository.deleteById(id);
         return !this.marcaRepository.findById(id).isPresent();
     }
+    
+    public boolean deleteByNombre(String nombre) {
+        marcaRepository.deleteByNombre(nombre);
+        return !this.marcaRepository.findByNombre(nombre).isPresent();
+    }
+    
+	@Override
+	public Optional<DTOMarca> getByNombre(String nombre) {
+		return this.marcaRepository.findByNombre(nombre).map(marca->new MapperMarcaDTO().mapToDto(marca));
+	}
 
 }
