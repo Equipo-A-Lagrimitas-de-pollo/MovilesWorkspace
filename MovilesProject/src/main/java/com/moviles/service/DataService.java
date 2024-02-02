@@ -3,6 +3,8 @@ package com.moviles.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.moviles.model.DTO.DTOProcesador;
+
 public interface DataService<T, ID> {
 
     public Optional<T> getById(ID id);

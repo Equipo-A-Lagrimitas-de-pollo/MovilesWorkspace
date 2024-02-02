@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.moviles.mapper.MapperMarcaDTO;
 import com.moviles.mapper.MapperProcesadorDTO;
+import com.moviles.model.DTO.DTOMarca;
 import com.moviles.model.DTO.DTOProcesador;
 import com.moviles.model.entity.Procesador;
 import com.moviles.repositories.ProcesadorRepository;
@@ -48,5 +50,14 @@ public class ProcesadorDataServiceImpl implements ProcesadorService {
 		procesadorRepository.deleteById(id);
 		return !this.procesadorRepository.findById(id).isPresent();
 	}
+	  public boolean deleteByNombre(String nombre) {
+	        procesadorRepository.deleteByNombre(nombre);
+	        return !this.procesadorRepository.findByNombre(nombre).isPresent();
+	    }
+	    
+	  @Override
+		public Optional<DTOProcesador> getByNombre(String nombre) {
+			return this.procesadorRepository.findByNombre(nombre).map(procesador->new MapperProcesadorDTO().mapToDto(procesador));
+		}
 
 }
