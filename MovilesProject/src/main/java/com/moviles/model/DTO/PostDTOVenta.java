@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Data
-public class PostDTO {
+public class PostDTOVenta {
 	private int idAnuncio;
 	private int idUsuario;
 	private int referencia;
 	private Movil tipoMovilVenta;
 	private String estado;
-	
+
 }
