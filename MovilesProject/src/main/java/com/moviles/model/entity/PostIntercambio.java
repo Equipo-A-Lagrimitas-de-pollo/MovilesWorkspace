@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Document("postIntercambio")
 public class PostIntercambio extends Post {
 
-    @Field("precioEstimado")
-    private double precioEstimado;
+    @Field("estadoMinimo")
+    private String estadoMinimo;
 }
