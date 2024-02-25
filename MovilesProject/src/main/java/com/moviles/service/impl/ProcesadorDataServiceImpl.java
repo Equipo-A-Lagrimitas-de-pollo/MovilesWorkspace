@@ -35,8 +35,12 @@ public class ProcesadorDataServiceImpl implements ProcesadorService {
 
 	@Override
 	public boolean update(Procesador entity) {
-		return getById(entity.getId()).isPresent() ? save(entity) : false;
-
+		Optional<Procesador> procesadorEncontrado = procesadorRepository.findByReferencia(entity.getReferencia());
+		if(procesadorEncontrado.isPresent()){
+			return false;
+		}
+		procesadorRepository.save(entity);
+		return true;
 	}
 
 	@Override

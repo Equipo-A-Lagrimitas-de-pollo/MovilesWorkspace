@@ -20,6 +20,8 @@ import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.service.impl.MovilServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/movil")
 public class ControlerMovil {
@@ -57,7 +59,7 @@ public class ControlerMovil {
     }
 
     @GetMapping("filter")
-    public ResponseEntity<List<Movil>> getMethodName(@RequestBody DTOMovilFilter movilFilter) {
+    public ResponseEntity<List<Movil>> getMethodName(@Valid @RequestBody DTOMovilFilter movilFilter) {
         return ResponseEntity.ok(movilService.filter(movilFilter));
     }
 

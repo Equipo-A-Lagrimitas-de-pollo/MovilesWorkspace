@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class Procesador {
 	private String nombre;
 	private int numeronucleos;
 	private double gigaHerziosMaximos;
+	@ManyToOne()
+	private MarcaProcesador marcaProcesador;
 	
 	public Procesador(Long referencia, String nombre, int numeronucleos, double gigaHerziosMaximos) {
 		super();
