@@ -1,6 +1,5 @@
 package com.moviles.model.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,13 +13,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -36,11 +33,10 @@ public class User {
 	@Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)[A-Za-z\\d;,\\.]{8,}$", message = "Debe tener al menos 8 caracteres, contener al menos una mayúscula, una minúscula, un número y un símbolo entre coma, punto y coma, o punto")
 	private String password;
 
+	// @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	// private Set<RoleEntity> roles;
 
-	//@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	//private Set<RoleEntity> roles;
-	
-	public User(String email, String username, String password) {
+	public Usuario(String email, String username, String password) {
 		super();
 		this.email = email;
 		this.username = username;
