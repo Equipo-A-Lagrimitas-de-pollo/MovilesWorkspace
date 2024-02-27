@@ -1,5 +1,7 @@
 package com.moviles.model.entity;
 
+import java.sql.Date;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -15,4 +17,10 @@ import lombok.NoArgsConstructor;
 public class PostVenta extends Post {
     @Field("precio")
     private double precio;
+
+    public PostVenta(String idAnuncio, int idUsuario, int referencia, String estado, Date date, double precio) {
+        super(idAnuncio, idUsuario, referencia, estado, date);
+        this.precio = precio;
+    }
+
 }

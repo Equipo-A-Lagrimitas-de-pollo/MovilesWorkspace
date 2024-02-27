@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document("peticionIntercambio")
-public class PeticionInctercambio extends Peticion {
+public class PeticionIntercambio extends Peticion {
 
     @Field("solicitante")
     private Usuario solicitante;
