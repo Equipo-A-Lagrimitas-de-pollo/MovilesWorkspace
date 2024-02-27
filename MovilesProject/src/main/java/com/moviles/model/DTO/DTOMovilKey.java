@@ -1,7 +1,5 @@
 package com.moviles.model.DTO;
 
-import java.io.Serializable;
-
 import com.moviles.model.entity.Modelo;
 
 import lombok.AllArgsConstructor;
