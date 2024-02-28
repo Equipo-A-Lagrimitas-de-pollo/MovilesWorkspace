@@ -26,4 +26,11 @@ public abstract class Post {
     @Field("fechaCreacion")
     private Date date;
 
+    public Post(int idUsuario, int referencia, String estado, Date date) {
+        this.idUsuario = idUsuario;
+        this.referencia = referencia;
+        this.estado = estado;
+        this.date = date;
+    }
+
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.moviles.model.DTO.DTOAnuncio;
+import com.moviles.model.entity.PostVenta;
 import com.moviles.repositories.PostVentaRepository;
 import com.moviles.service.AnucioService;
 
@@ -31,39 +32,25 @@ public class AnuncioServiceImpl implements AnucioService {
     }
 
     @Override
-    public boolean createPostVenta() {
+    public boolean createPostVenta(DTOAnuncio dtoAnuncio) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createPostVenta'");
+        return false;
     }
 
     @Override
-    public boolean deletePostVenta() {
+    public boolean deletePostVenta(Long id) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletePostVenta'");
+        return false;
     }
 
-	@Override
-	public Optional<DTOAnuncio> getByUserName() {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
+    @Override
+    public Optional<DTOAnuncio> getByUserName(String name) {
+        // TODO Auto-generated method stub
+        return Optional.empty();
+    }
 
-	@Override
-	public boolean createPostVenta(DTOAnuncio dtoAnuncio) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean deletePostVenta(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Optional<DTOAnuncio> getByUserName(String name) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
+    public void createPost(PostVenta post) {
+        postVentaRepository.save(post);
+    }
 
 }
