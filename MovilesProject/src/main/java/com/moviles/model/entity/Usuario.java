@@ -1,12 +1,18 @@
 package com.moviles.model.entity;
 
+import java.util.Set;
+
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -31,8 +37,8 @@ public class Usuario {
 	@Field("contraseñaUsuario")
 	private String password;
 
-	// @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-	// private Set<RoleEntity> roles;
+	@DBRef
+	 private Set<RoleEntity> roles;
 
 	public Usuario(String email, String username, String password) {
 		super();
