@@ -2,6 +2,7 @@ package com.moviles.model.entity;
 
 import java.sql.Date;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 public abstract class Post {
     @Id
     @Field("_id")
-    private String idAnuncio;
+    private ObjectId idAnuncio;
     @Field("idUsuario")
     private int idUsuario;
     @Field("referencia")

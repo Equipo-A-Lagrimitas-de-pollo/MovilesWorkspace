@@ -16,5 +16,4 @@ public class DTOAnuncio {
 	private String tipoMovilVenta;
 	private String estado;
 
-
 }

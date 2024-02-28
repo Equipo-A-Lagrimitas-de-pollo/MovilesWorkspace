@@ -1,18 +1,30 @@
 package com.moviles.model.entity;
 
+import java.sql.Date;
+
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Document("postIntercambio")
 public class PostIntercambio extends Post {
 
     @Field("estadoMinimo")
     private String estadoMinimo;
+
+    public PostIntercambio(ObjectId idAnuncio, int idUsuario, int referencia, String estado, Date date,
+            String estadoMinimo) {
+        super(idAnuncio, idUsuario, referencia, estado, date);
+        this.estadoMinimo = estadoMinimo;
+    }
+
+    public PostIntercambio(String estadoMinimo) {
+        this.estadoMinimo = estadoMinimo;
+    }
+
 }
