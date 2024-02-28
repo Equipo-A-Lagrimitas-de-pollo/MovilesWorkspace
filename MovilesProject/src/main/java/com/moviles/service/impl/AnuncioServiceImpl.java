@@ -1,6 +1,7 @@
 package com.moviles.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -40,5 +41,29 @@ public class AnuncioServiceImpl implements AnucioService {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deletePostVenta'");
     }
+
+	@Override
+	public Optional<DTOAnuncio> getByUserName() {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public boolean createPostVenta(DTOAnuncio dtoAnuncio) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deletePostVenta(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Optional<DTOAnuncio> getByUserName(String name) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
 
 }
