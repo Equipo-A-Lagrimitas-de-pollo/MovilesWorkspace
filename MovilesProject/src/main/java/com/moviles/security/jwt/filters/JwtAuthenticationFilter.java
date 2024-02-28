@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moviles.security.jwt.JwtUtils;
-//import com.moviles.model.entity.Usuario;
+import com.moviles.model.entity.Usuario;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -30,30 +30,30 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		this.jwtUtils = jwtUtils;
 	}
 
-//	@Override
-//	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
-//			throws AuthenticationException {
-//		Usuario userEntity;
-//		String username;
-//		String password;
-//		System.out.println("JwtAuthenticationFilter:intento authenticate");
-//		try {
-//			userEntity = new ObjectMapper().readValue(request.getInputStream(), UserEntity.class);
-//			username = userEntity.getUsername();
-//			password = userEntity.getPassword();
-//			// esto nos da un token basado en username y password
-//			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
-//					password);
-//			Authentication authenticate = getAuthenticationManager().authenticate(authenticationToken);
-//			System.out.println("JwtAuthenticationFilter:terminado intento authenticate");
-//			
-//			return authenticate;
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			return null;
-//		}
-//	}
+	@Override
+	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
+			throws AuthenticationException {
+		Usuario userEntity;
+		String username;
+		String password;
+		System.out.println("JwtAuthenticationFilter:intento authenticate");
+		try {
+			userEntity = new ObjectMapper().readValue(request.getInputStream(), Usuario.class);
+			username = userEntity.getUsername();
+			password = userEntity.getPassword();
+			// esto nos da un token basado en username y password
+			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
+					password);
+			Authentication authenticate = getAuthenticationManager().authenticate(authenticationToken);
+			System.out.println("JwtAuthenticationFilter:terminado intento authenticate");
+			
+			return authenticate;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
