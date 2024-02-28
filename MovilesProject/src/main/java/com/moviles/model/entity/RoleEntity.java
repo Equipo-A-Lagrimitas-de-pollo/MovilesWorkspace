@@ -1,3 +1,16 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
 package com.moviles.model.entity;
 
 import jakarta.persistence.Column;
