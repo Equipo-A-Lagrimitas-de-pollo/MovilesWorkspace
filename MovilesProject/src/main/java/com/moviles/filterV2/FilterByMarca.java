@@ -1,15 +1,15 @@
 package com.moviles.filterV2;
 
 import com.moviles.model.entity.Movil;
-public class FilterByMarca extends Filter<Long>{
+public class FilterByMarca extends Filter<String>{
 
-	public FilterByMarca(Long parameter) {
+	public FilterByMarca(String parameter) {
 		super(parameter);
 	}
 
 	@Override
 	public boolean filter(Movil item) {
-		return item.getMarcaId()==parameter;
+		return item.getMarcaId().equals(parameter);
 	}
 
 }

@@ -23,18 +23,25 @@ public class Modelo {
 	private Long id;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Marca marca;
-	
+	private Long referencia;
 	private String nombre;
 
 	public Long getMarcaId() {
 		return marca.getId();
 
 	}
+	
+	public String getNombreMarca() {
+		return marca.getNombre();
+	}
 
-	public Modelo(Marca marca, String nombre) {
+	public Modelo(Marca marca, Long referencia, String nombre) {
 		super();
 		this.marca = marca;
+		this.referencia = referencia;
 		this.nombre = nombre;
 	}
+
+	
 
 }

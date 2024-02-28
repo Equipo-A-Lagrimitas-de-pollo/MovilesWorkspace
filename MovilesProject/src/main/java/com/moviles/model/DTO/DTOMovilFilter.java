@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DTOMovilFilter {
 	@NotNull
-	private Long idMarca;
+	private String nombreMarca;
 	@NotNull
 	@Positive
 	private double precioMax;

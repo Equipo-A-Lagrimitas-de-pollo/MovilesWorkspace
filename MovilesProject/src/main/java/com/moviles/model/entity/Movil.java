@@ -33,6 +33,7 @@ public class Movil {
 	private Procesador procesador;
 	@ManyToOne(cascade = CascadeType.ALL)
 	private TecnologiaPantalla tecnologiaPantalla;
+	private Long referencia;
 	private double ancho;
 	private double grosor;
 	private double alto;
@@ -49,18 +50,23 @@ public class Movil {
 	public Long getMarcaId() {
 		return modelo.getMarcaId();
 	}
+	
+	public String getNombreMarca() {
+		return modelo.getNombreMarca();
+	}
 
 	public Long getTecId() {
 		return tecnologiaPantalla.getId();
 	}
 
-	public Movil(Modelo modelo, Procesador procesador, TecnologiaPantalla tecnologiaPantalla, double ancho,
-			double grosor, double alto, double tamanoPantalla, int almacenamiento, int ram, double peso,
+	public Movil(Modelo modelo, Procesador procesador, TecnologiaPantalla tecnologiaPantalla, Long referencia,
+			double ancho, double grosor, double alto, double tamanoPantalla, int almacenamiento, int ram, double peso,
 			int megaPixeles, boolean nfc, double precio, LocalDate fechaLanzamiento, int puntuacion) {
 		super();
 		this.modelo = modelo;
 		this.procesador = procesador;
 		this.tecnologiaPantalla = tecnologiaPantalla;
+		this.referencia = referencia;
 		this.ancho = ancho;
 		this.grosor = grosor;
 		this.alto = alto;
@@ -74,5 +80,7 @@ public class Movil {
 		this.fechaLanzamiento = fechaLanzamiento;
 		this.puntuacion = puntuacion;
 	}
+
+
 
 }
