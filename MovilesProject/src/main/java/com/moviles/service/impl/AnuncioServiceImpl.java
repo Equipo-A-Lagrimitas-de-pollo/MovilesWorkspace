@@ -2,26 +2,18 @@ package com.moviles.service.impl;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.moviles.model.DTO.DTOAnuncio;
-import com.moviles.model.entity.PostVenta;
 import com.moviles.repositories.PostVentaRepository;
 import com.moviles.service.AnucioService;
 
-@Service
 public class AnuncioServiceImpl implements AnucioService {
 
     private PostVentaRepository postVentaRepository;
 
-    public AnuncioServiceImpl(PostVentaRepository postVentaRepository) {
-        this.postVentaRepository = postVentaRepository;
-    }
-
     @Override
-    public boolean crearAnuncio(DTOAnuncio dtoAnuncio, String token) {
+    public boolean createPostIntercambio(DTOAnuncio dtoAnuncio, String token) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'crearAnuncio'");
+        throw new UnsupportedOperationException("Unimplemented method 'createPostIntercambio'");
     }
 
     @Override
@@ -31,9 +23,15 @@ public class AnuncioServiceImpl implements AnucioService {
     }
 
     @Override
-    public boolean crearAnuncioNoComplete(PostVenta post) {
-        postVentaRepository.save(post);
-        return true;
+    public boolean createPostVenta(String token) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'createPostVenta'");
+    }
+
+    @Override
+    public boolean deletePostVenta(String token) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deletePostVenta'");
     }
 
 }
