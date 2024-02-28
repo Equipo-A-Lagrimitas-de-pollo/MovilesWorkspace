@@ -2,7 +2,6 @@ package com.moviles.model.entity;
 
 import java.sql.Date;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -17,8 +16,8 @@ public class PostVenta extends Post {
     @Field("precio")
     private double precio;
 
-    public PostVenta(ObjectId idAnuncio, int idUsuario, int referencia, String estado, Date date, double precio) {
-        super(idAnuncio, idUsuario, referencia, estado, date);
+    public PostVenta(int idUsuario, int referencia, String estado, Date date, double precio) {
+        super(idUsuario, referencia, estado, date);
         this.precio = precio;
     }
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.moviles.model.DTO.DTOAnuncio;
+import com.moviles.model.entity.PostVenta;
 import com.moviles.repositories.PostVentaRepository;
 import com.moviles.service.AnucioService;
 
@@ -39,6 +40,10 @@ public class AnuncioServiceImpl implements AnucioService {
     public boolean deletePostVenta() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'deletePostVenta'");
+    }
+
+    public void createPost(PostVenta post) {
+        postVentaRepository.save(post);
     }
 
 }
