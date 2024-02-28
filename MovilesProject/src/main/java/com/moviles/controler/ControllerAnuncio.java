@@ -16,6 +16,8 @@ import com.moviles.model.DTO.DTOAnuncio;
 import com.moviles.model.entity.Marca;
 import com.moviles.service.impl.AnuncioServiceImpl;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/anuncio")
 public class ControllerAnuncio {
@@ -33,22 +35,23 @@ public class ControllerAnuncio {
 	}
 
 	@GetMapping("findById")
-	public ResponseEntity<DTOAnuncio> getById(@RequestParam Long id) {
-		return ResponseEntity.ok(anuncioServiceImpl.getById(id).get());
+	public ResponseEntity<DTOAnuncio> getById(@Valid @RequestParam String name) {
+		return ResponseEntity.ok(anuncioServiceImpl.getByUserName(name).get());
 	}
 
 	@DeleteMapping("delete")
-	public ResponseEntity<Boolean> delete(@RequestParam Long id) {
-		return ResponseEntity.ok(anuncioServiceImpl.delete(id));
+	public ResponseEntity<Boolean> delete(@Valid @RequestParam Long id) {
+		return ResponseEntity.ok(anuncioServiceImpl.deletePostVenta(id));
 	}
 
 	@PostMapping("create")
-	public ResponseEntity<Boolean> post(@RequestBody Marca marca) {
-		return ResponseEntity.ok(anuncioServiceImpl.save(marca));
+	public ResponseEntity<Boolean> post(@Valid @RequestBody DTOAnuncio dtoAnuncio) {
+		return ResponseEntity.ok(anuncioServiceImpl.createPostVenta(dtoAnuncio));
 	}
 
 	@PutMapping("update")
-	public ResponseEntity<Boolean> put(@RequestBody Marca marca) {
-		return ResponseEntity.ok(anuncioServiceImpl.update(marca));
+	public ResponseEntity<Boolean> put(@Valid @RequestBody  DTOAnuncio dtoAnuncio) {
+		//TODO
+		return ResponseEntity.ok(anuncioServiceImpl.update(dtoAnuncio));
 	}
 }
