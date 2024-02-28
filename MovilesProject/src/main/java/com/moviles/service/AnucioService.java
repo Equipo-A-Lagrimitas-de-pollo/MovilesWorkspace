@@ -5,12 +5,12 @@ import java.util.List;
 import com.moviles.model.DTO.DTOAnuncio;
 
 public interface AnucioService {
-    public boolean createPostIntercambio(DTOAnuncio dtoAnuncio, String token);
+    public boolean createPostIntercambio(DTOAnuncio dtoAnuncio);
 
-    public List<DTOAnuncio> getAnuncios(String token);
+    public List<DTOAnuncio> getAnuncios();
 
-    public boolean createPostVenta(String token);
+    public boolean createPostVenta();
 
-    public boolean deletePostVenta(String token);
+    public boolean deletePostVenta();
 
 }
