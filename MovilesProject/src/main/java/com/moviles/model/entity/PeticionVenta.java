@@ -16,6 +16,6 @@ public class PeticionVenta extends Peticion {
     @Field("solicitante")
     private Usuario solicitante;
     @Field("peticionVenta")
-    private PeticionVenta peticionVenta;
+    private PostVenta postVenta;
 
 }
