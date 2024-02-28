@@ -1,6 +1,7 @@
 package com.moviles.model.entity;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -21,9 +22,13 @@ import lombok.NoArgsConstructor;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Field("_id")
 	private Long id;
+	@Field("emailUsuario")
 	private String email;
+	@Field("nombreUsuario")
 	private String username;
+	@Field("contraseñaUsuario")
 	private String password;
 
 	// @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
