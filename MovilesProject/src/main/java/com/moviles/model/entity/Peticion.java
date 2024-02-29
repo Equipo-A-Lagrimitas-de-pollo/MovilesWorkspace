@@ -18,4 +18,6 @@ public abstract class Peticion {
     // TODO Cambiar por una clase User
     @Field("usuario")
     private Usuario user;
+    @Field("referencia")
+    private String referencia;
 }
