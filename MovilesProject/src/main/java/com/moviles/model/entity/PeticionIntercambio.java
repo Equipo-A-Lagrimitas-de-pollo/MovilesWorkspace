@@ -1,5 +1,6 @@
 package com.moviles.model.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -19,5 +20,17 @@ public class PeticionIntercambio extends Peticion {
     private PostIntercambio postIntercambio;
     @Field("postIntercambioSolicitante")
     private PostIntercambio postIntercambioSolicitante;
+    
+	public PeticionIntercambio(Usuario user, String referencia, Usuario solicitante,
+			PostIntercambio postIntercambio, PostIntercambio postIntercambioSolicitante) {
+		super(user, referencia);
+		this.solicitante = solicitante;
+		this.postIntercambio = postIntercambio;
+		this.postIntercambioSolicitante = postIntercambioSolicitante;
+	}
+    
+    
+    
+    
 
 }
