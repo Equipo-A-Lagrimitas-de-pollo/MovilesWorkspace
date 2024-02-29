@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.moviles.model.entity.ERole;
 import com.moviles.model.entity.RoleEntity;
 
-
 public interface RoleRepository extends JpaRepository<RoleEntity, Long> {
 
 	public Optional<RoleEntity> findByName(ERole erole);

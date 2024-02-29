@@ -1,16 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
 package com.moviles.model.entity;
 
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -45,5 +33,4 @@ public class RoleEntity {
 		this.name = name;
 	}
 
-	
 }

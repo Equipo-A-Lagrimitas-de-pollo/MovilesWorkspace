@@ -1,4 +1,5 @@
 package com.moviles.security.jwt;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,7 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class JwtUtils {
-//	/	EncryptedKeyGenerator en web 256 en hex https://asecuritysite.com/encryption/plain
+	// / EncryptedKeyGenerator en web 256 en hex
+	// https://asecuritysite.com/encryption/plain
 	@Value("${jwt.secret.key}")
 	private String secretKey;
 
@@ -33,7 +35,7 @@ public class JwtUtils {
 				// la parte publica
 				.issuedAt(Date.valueOf(LocalDate.now().plus(1, ChronoUnit.DAYS)))
 				.subject(username)
-				//caducando
+				// caducando
 				.expiration(Date.from(LocalDateTime.now().plusSeconds(30).atZone(ZoneId.systemDefault()).toInstant()))
 				// la parte secreta
 				.signWith(getSignatureKey())
@@ -42,6 +44,7 @@ public class JwtUtils {
 		return compact;
 
 	}
+
 	public String generateRefreshToken(User user) {
 		return Jwts.builder()
 				.subject(user.getUsername())
