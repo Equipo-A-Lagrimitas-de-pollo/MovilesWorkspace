@@ -21,10 +21,9 @@ public abstract class Peticion {
     @Field("referencia")
     protected String referencia;
     
-	public Peticion(Usuario user, String referencia) {
+	public Peticion(Usuario user) {
 		super();
 		this.user = user;
-		this.referencia = referencia;
 	}
     
     

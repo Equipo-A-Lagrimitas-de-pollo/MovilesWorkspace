@@ -21,9 +21,9 @@ public class PeticionIntercambio extends Peticion {
     @Field("postIntercambioSolicitante")
     private PostIntercambio postIntercambioSolicitante;
     
-	public PeticionIntercambio(Usuario user, String referencia, Usuario solicitante,
+	public PeticionIntercambio(Usuario user, Usuario solicitante,
 			PostIntercambio postIntercambio, PostIntercambio postIntercambioSolicitante) {
-		super(user, referencia);
+		super(user);
 		this.solicitante = solicitante;
 		this.postIntercambio = postIntercambio;
 		this.postIntercambioSolicitante = postIntercambioSolicitante;

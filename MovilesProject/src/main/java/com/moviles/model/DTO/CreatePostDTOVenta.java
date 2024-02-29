@@ -1,5 +1,7 @@
 package com.moviles.model.DTO;
 
+import java.sql.Date;
+
 import com.moviles.model.entity.Movil;
 
 import lombok.AllArgsConstructor;
@@ -11,11 +13,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @Data
-public class PostDTOVenta {
-	private int idAnuncio;
+public class CreatePostDTOVenta {
 	private int idUsuario;
 	private int referencia;
-	private Movil tipoMovilVenta;
+	private Long tipoMovilVenta;
+	private Date fecha;
 	private String estado;
+	private Double precio;
 
 }
