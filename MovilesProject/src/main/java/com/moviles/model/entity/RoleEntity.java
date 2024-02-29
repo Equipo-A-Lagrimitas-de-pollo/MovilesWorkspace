@@ -13,6 +13,8 @@
 
 package com.moviles.model.entity;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,9 +33,11 @@ import lombok.NoArgsConstructor;
 public class RoleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Field("idRol")
 	private Long id;
 	@Enumerated(EnumType.STRING)
 	@Column(unique = true)
+	@Field("nombreRol")
 	private ERole name;
 
 	public RoleEntity(ERole name) {
