@@ -1,6 +1,7 @@
 package com.moviles.controler;
 
 import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,15 +13,16 @@ import com.moviles.model.DTO.AceptarPeticionDto;
 import com.moviles.model.DTO.CreatePeticionIntercambioDto;
 import com.moviles.model.DTO.CreatePeticionVentaDto;
 import com.moviles.model.DTO.DTOPeticion;
-import com.moviles.service.PeticionService;
+import com.moviles.service.impl.PeticionServiceImpl;
+
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/peticion")
 public class ControllerPeticion {
-	private final PeticionService peticionService;
+	private final PeticionServiceImpl peticionService;
 
-	public ControllerPeticion(PeticionService peticionService) {
+	public ControllerPeticion(PeticionServiceImpl peticionService) {
 		super();
 		this.peticionService = peticionService;
 	}

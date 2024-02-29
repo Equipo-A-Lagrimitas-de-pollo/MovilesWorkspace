@@ -2,12 +2,15 @@ package com.moviles.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.moviles.model.DTO.AceptarPeticionDto;
 import com.moviles.model.DTO.CreatePeticionIntercambioDto;
 import com.moviles.model.DTO.CreatePeticionVentaDto;
 import com.moviles.model.DTO.DTOPeticion;
 import com.moviles.service.PeticionService;
 
+@Service
 public class PeticionServiceImpl implements PeticionService {
 
 	@Override
