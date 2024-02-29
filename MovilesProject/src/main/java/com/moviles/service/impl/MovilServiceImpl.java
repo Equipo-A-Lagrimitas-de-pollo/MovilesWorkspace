@@ -11,7 +11,7 @@ import com.moviles.filterV2.Filter;
 import com.moviles.mapper.MapDTOFilterToListFilter;
 import com.moviles.model.DTO.DTOMovilFilter;
 import com.moviles.model.DTO.DTORequestPuntuacion;
-import com.moviles.model.DTO.DTOCompare;
+import com.moviles.model.DTO.DTOcompare;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.repositories.MovilRepository;
@@ -78,7 +78,7 @@ public class MovilServiceImpl implements MovilService, FilterService<List<Movil>
 	}
 
 	@Override
-	public List<Movil> compareMovile(DTOCompare keys) {
+	public List<Movil> compareMovile(DTOcompare keys) {
 		List<Movil> list = new ArrayList<>();
 		list.add(this.movilRepository.findById(keys.getKey1()).get());
 		list.add(this.movilRepository.findById(keys.getKey2()).get());
