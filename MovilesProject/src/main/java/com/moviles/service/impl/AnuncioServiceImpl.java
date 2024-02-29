@@ -21,8 +21,13 @@ public class AnuncioServiceImpl implements AnucioService {
 
     @Override
     public boolean createPostIntercambio(DTOAnuncio dtoAnuncio) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createPostIntercambio'");
+        Optional<PostVenta> postVentas = postVentaRepository.findByReferencia();
+        if (postVentas.isPresent()) {
+            return false;
+        } else {
+
+        }
+
     }
 
     @Override

@@ -16,9 +16,10 @@ public interface AnucioService {
 	public boolean deletePostVenta(Long id);
 
 	public Optional<DTOAnuncio> getByUserName(String name);
-	
+
+	public boolean update();
 	/*
-	Plantear implementar un metodo putAnuncio
-	Revisar los parametros de entrada de los metodos ya creados
-	*/
+	 * Plantear implementar un metodo putAnuncio
+	 * Revisar los parametros de entrada de los metodos ya creados
+	 */
 }
