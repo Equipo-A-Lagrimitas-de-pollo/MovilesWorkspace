@@ -11,7 +11,7 @@ import com.moviles.filterV2.Filter;
 import com.moviles.mapper.MapDTOFilterToListFilter;
 import com.moviles.model.DTO.DTOMovilFilter;
 import com.moviles.model.DTO.DTORequestPuntuacion;
-import com.moviles.model.DTO.DTOcompare;
+import com.moviles.model.DTO.DTOCompare;
 import com.moviles.model.entity.Movil;
 import com.moviles.model.entity.MovilKey;
 import com.moviles.repositories.MovilRepository;
@@ -21,7 +21,7 @@ import com.moviles.service.MovilService;
 import io.micrometer.common.lang.NonNull;
 
 @Service
-public class MovilServiceImpl implements MovilService,FilterService<List<Movil>, DTOMovilFilter> {
+public class MovilServiceImpl implements MovilService, FilterService<List<Movil>, DTOMovilFilter> {
 
 	private MovilRepository movilRepository;
 
@@ -78,7 +78,7 @@ public class MovilServiceImpl implements MovilService,FilterService<List<Movil>,
 	}
 
 	@Override
-	public List<Movil> compareMovile(DTOcompare keys) {
+	public List<Movil> compareMovile(DTOCompare keys) {
 		List<Movil> list = new ArrayList<>();
 		list.add(this.movilRepository.findById(keys.getKey1()).get());
 		list.add(this.movilRepository.findById(keys.getKey2()).get());
@@ -88,12 +88,12 @@ public class MovilServiceImpl implements MovilService,FilterService<List<Movil>,
 	@Override
 	public List<Movil> filter(DTOMovilFilter parametros) {
 		List<Movil> toFilter = getAll();
-		List<Filter<?>> filtros= new MapDTOFilterToListFilter().map(parametros);
+		List<Filter<?>> filtros = new MapDTOFilterToListFilter().map(parametros);
 		for (Filter<?> filter : filtros) {
-			toFilter=toFilter.stream().filter(movil->filter.filter(movil)).toList();
+			toFilter = toFilter.stream().filter(movil -> filter.filter(movil)).toList();
 		}
-		return toFilter;	
-		
+		return toFilter;
+
 	}
 
 }
