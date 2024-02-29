@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.moviles.model.DTO.DTOCreateUser;
-import com.moviles.model.DTO.DTOUsuario;
 import com.moviles.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
