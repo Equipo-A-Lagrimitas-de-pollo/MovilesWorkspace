@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.moviles.model.DTO.DTOAnuncio;
 import com.moviles.model.DTO.DTOCreateUser;
 import com.moviles.model.DTO.DTOUsuario;
 import com.moviles.service.UserService;
