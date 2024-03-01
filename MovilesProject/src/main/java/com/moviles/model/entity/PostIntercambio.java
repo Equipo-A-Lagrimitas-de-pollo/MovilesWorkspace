@@ -17,9 +17,9 @@ public class PostIntercambio extends Post {
     @Field("estadoMinimo")
     private String estadoMinimo;
 
-    public PostIntercambio(ObjectId idAnuncio, int idUsuario, int referencia, String estado, Date date,
+    public PostIntercambio(String emailUsuario, int referencia,Long referenciaMovil,  String estado, Date date,
             String estadoMinimo) {
-        super(idAnuncio, idUsuario, referencia, estado, date);
+        super(emailUsuario, referencia,referenciaMovil, estado, date);
         this.estadoMinimo = estadoMinimo;
     }
 

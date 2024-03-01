@@ -16,8 +16,8 @@ public class PostVenta extends Post {
     @Field("precio")
     private double precio;
 
-    public PostVenta(int idUsuario, int referencia, String estado, Date date, double precio) {
-        super(idUsuario, referencia, estado, date);
+    public PostVenta(String userName, int referencia,Long referenciaMovil, String estado, Date date, double precio) {
+        super(userName, referencia,referenciaMovil, estado, date);
         this.precio = precio;
     }
 

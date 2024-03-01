@@ -25,6 +25,7 @@ public class Popopulate {
     }
 
     public void populate() {
-        anucioService.createPost(new PostVenta(1, 1, "Heroico", new Date(10, 10, 2), 0));
+    	//TODO
+        //anucioService.createPost(new PostVenta(1, 1, "Heroico", new Date(10, 10, 2), 0));
     }
 }
