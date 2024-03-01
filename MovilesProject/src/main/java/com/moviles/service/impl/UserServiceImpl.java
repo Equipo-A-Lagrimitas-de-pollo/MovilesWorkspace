@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -114,7 +115,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Usuario getUserByUsername(String username) {
-		return userRepository.findByUsername(username).orElse(null);
+		return userRepository.findByUsername(username).get();
 	}
-
 }
