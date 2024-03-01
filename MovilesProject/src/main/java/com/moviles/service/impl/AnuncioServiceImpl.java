@@ -35,7 +35,7 @@ public class AnuncioServiceImpl implements AnucioService {
 
     @Override
     public boolean createPostIntercambio(CreatePostDTOIntercambio dtoAnuncio) {
-        Optional<PostVenta> postVentas = postVentaRepository.findByReferencia();
+        Optional<PostIntercambio> postVentas = postIntercambioRepository.findByReferenciaMovil(dtoAnuncio.getReferencia());
         if (postVentas.isPresent()) {
             return false;
         }
@@ -55,8 +55,11 @@ public class AnuncioServiceImpl implements AnucioService {
 
     @Override
     public boolean createPostVenta(CreatePostDTOVenta dtoAnuncio) {
-        // TODO Auto-generated method stub
-        return false;
+    	Optional<PostVenta> post = postVentaRepository.findByReferencia(dtoAnuncio.getReferencia());
+    	if(post.isPresent()) {
+    		return false;
+    	}
+    	return false;
     }
 
     @Override

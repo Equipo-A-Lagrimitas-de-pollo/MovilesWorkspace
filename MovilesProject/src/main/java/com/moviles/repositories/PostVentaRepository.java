@@ -11,5 +11,5 @@ import com.moviles.model.entity.PostVenta;
 @Repository
 public interface PostVentaRepository extends MongoRepository<PostVenta, ObjectId> {
 
-    public Optional<PostVenta> findByReferencia();
+    public Optional<PostVenta> findByReferencia(Long referencia);
 }

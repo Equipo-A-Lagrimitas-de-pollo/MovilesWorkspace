@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class CreatePostDTOIntercambio {
 	private String userName;
-	private int referencia;
+	private Long referencia;
 	private Long referenciaMovil;
 	private Date fecha;
 	private String estado;
