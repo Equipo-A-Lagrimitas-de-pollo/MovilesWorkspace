@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.moviles.mapper.CreatePostDtoToPostIntercambio;
+import com.moviles.mapper.CreatePostDtoVentaToPostVenta;
 import com.moviles.mapper.PostIntercambioToPostInfoDto;
+import com.moviles.mapper.PostVentaToPostInfoDto;
 import com.moviles.model.DTO.CreatePostDTOIntercambio;
 import com.moviles.model.DTO.CreatePostDTOVenta;
 import com.moviles.model.DTO.PostInfoDto;
@@ -14,6 +16,7 @@ import com.moviles.model.DTO.UpdateDtoAnuncio;
 import com.moviles.model.entity.Post;
 import com.moviles.model.entity.PostIntercambio;
 import com.moviles.model.entity.PostVenta;
+import com.moviles.model.entity.Usuario;
 import com.moviles.repositories.PostIntercambioRepository;
 import com.moviles.repositories.PostVentaRepository;
 import com.moviles.service.AnucioService;
@@ -35,12 +38,14 @@ public class AnuncioServiceImpl implements AnucioService {
 
     @Override
     public boolean createPostIntercambio(CreatePostDTOIntercambio dtoAnuncio) {
-        Optional<PostIntercambio> postVentas = postIntercambioRepository.findByReferenciaMovil(dtoAnuncio.getReferencia());
-        if (postVentas.isPresent()) {
+        Optional<PostIntercambio> post = postIntercambioRepository.findByReferenciaMovil(dtoAnuncio.getReferencia());
+        if (post.isPresent()) {
             return false;
         }
-        PostIntercambio post = new CreatePostDtoToPostIntercambio().map(dtoAnuncio);
-        postIntercambioRepository.save(post);
+        Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
+        PostIntercambio newPostIntercambio = new CreatePostDtoToPostIntercambio().map(dtoAnuncio);
+        newPostIntercambio.setUser(user);
+        postIntercambioRepository.save(newPostIntercambio);
         return true;
 
     }
@@ -48,8 +53,12 @@ public class AnuncioServiceImpl implements AnucioService {
     @Override
     public List<PostInfoDto> getAnuncios() {
        List<PostIntercambio> posts = postIntercambioRepository.findAll();
-       List<PostInfoDto> info = posts.stream().map(post->new PostIntercambioToPostInfoDto().map(post)).toList();
-       //TODO venta
+       List<PostInfoDto> info = posts.stream()
+    		   .map(post->new PostIntercambioToPostInfoDto().map(post))
+    		   .toList();
+       info.addAll(postVentaRepository.findAll().stream()
+    		   .map(postVenta->new PostVentaToPostInfoDto().map(postVenta))
+    		   .toList());
        return info;
     }
 
@@ -59,7 +68,11 @@ public class AnuncioServiceImpl implements AnucioService {
     	if(post.isPresent()) {
     		return false;
     	}
-    	return false;
+    	Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
+    	PostVenta postVenta = new CreatePostDtoVentaToPostVenta().map(dtoAnuncio);
+    	postVenta.setUser(user);
+    	postVentaRepository.save(postVenta);
+    	return true;
     }
 
     @Override
@@ -69,13 +82,8 @@ public class AnuncioServiceImpl implements AnucioService {
     }
 
     @Override
-    public Optional<PostInfoDto> getByUserName(String name) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
-    }
-
-    public void createPost(PostVenta post) {
-        postVentaRepository.save(post);
+    public List<PostInfoDto> getByUserName(String name) {
+        return getAnuncios().stream().filter(post->post.getNombreUsuario().equals(name)).toList();
     }
 
 	@Override

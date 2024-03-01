@@ -17,8 +17,8 @@ public abstract class Post {
     @Id
     @Field("_id")
     private ObjectId idAnuncio;
-    @Field("emailUsuario")
-    private String userName;
+    @Field("user")
+    private Usuario user;
     @Field("referencia")
     private Long referencia;
     @Field("idMovilVenta")
@@ -28,12 +28,22 @@ public abstract class Post {
     @Field("fechaCreacion")
     private Date date;
 
-    public Post(String username, Long referencia,Long referenciaMovil, String estado, Date date) {
-        this.userName = username;
+    public Post(Usuario user, Long referencia,Long referenciaMovil, String estado, Date date) {
+        this.user = user;
         this.referencia = referencia;
         this.referenciaMovil = referenciaMovil;
         this.estado = estado;
         this.date = date;
     }
+
+	public Post(Long referencia, Long referenciaMovil, String estado, Date date) {
+		super();
+		this.referencia = referencia;
+		this.referenciaMovil = referenciaMovil;
+		this.estado = estado;
+		this.date = date;
+	}
+    
+    
 
 }

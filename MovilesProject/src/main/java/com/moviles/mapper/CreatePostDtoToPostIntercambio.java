@@ -7,7 +7,7 @@ public class CreatePostDtoToPostIntercambio implements Mapper<CreatePostDTOInter
 
 	@Override
 	public PostIntercambio map(CreatePostDTOIntercambio t) {
-		return new PostIntercambio(t.getUserName(),t.getReferencia(),t.getReferenciaMovil(),t.getEstado(),t.getFecha(),t.getEstadoMinimoRequerido());
+		return new PostIntercambio(t.getReferencia(),t.getReferenciaMovil(),t.getEstado(),t.getFecha(),t.getEstadoMinimoRequerido());
 	}
 
 }
