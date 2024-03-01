@@ -37,8 +37,8 @@ public class ControllerAnuncio {
 	}
 
 	@GetMapping("findById")
-	public ResponseEntity<PostInfoDto> getById(@Valid @RequestParam String name) {
-		return ResponseEntity.ok(anuncioServiceImpl.getByUserName(name).get());
+	public ResponseEntity<List<PostInfoDto>> getById(@Valid @RequestParam String name) {
+		return ResponseEntity.ok(anuncioServiceImpl.getByUserName(name));
 	}
 
 	@DeleteMapping("delete")

@@ -13,7 +13,6 @@ import com.moviles.model.DTO.CreatePostDTOIntercambio;
 import com.moviles.model.DTO.CreatePostDTOVenta;
 import com.moviles.model.DTO.PostInfoDto;
 import com.moviles.model.DTO.UpdateDtoAnuncio;
-import com.moviles.model.entity.Post;
 import com.moviles.model.entity.PostIntercambio;
 import com.moviles.model.entity.PostVenta;
 import com.moviles.model.entity.Usuario;
@@ -83,7 +82,9 @@ public class AnuncioServiceImpl implements AnucioService {
 
     @Override
     public List<PostInfoDto> getByUserName(String name) {
-        return getAnuncios().stream().filter(post->post.getNombreUsuario().equals(name)).toList();
+        return getAnuncios().stream()
+        		.filter(post->post.getNombreUsuario().equals(name))
+        		.toList();
     }
 
 	@Override
