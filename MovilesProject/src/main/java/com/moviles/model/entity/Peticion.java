@@ -17,5 +17,16 @@ public abstract class Peticion {
     private ObjectId idPeticion;
     // TODO Cambiar por una clase User
     @Field("usuario")
-    private Usuario user;
+    protected Usuario user;
+    @Field("referencia")
+    protected String referencia;
+    
+	public Peticion(Usuario user) {
+		super();
+		this.user = user;
+	}
+    
+    
+    
+    
 }

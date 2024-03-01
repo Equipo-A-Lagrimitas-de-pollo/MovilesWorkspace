@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.moviles.model.DTO.DTOAnuncio;
+import com.moviles.model.DTO.CreatePostDTOVenta;
+import com.moviles.model.DTO.PostInfoDto;
+import com.moviles.model.DTO.UpdateDtoAnuncio;
 import com.moviles.model.entity.Marca;
 import com.moviles.service.impl.AnuncioServiceImpl;
 
@@ -30,12 +32,12 @@ public class ControllerAnuncio {
 	}
 
 	@GetMapping("find")
-	public ResponseEntity<List<DTOAnuncio>> get() {
+	public ResponseEntity<List<PostInfoDto>> get() {
 		return ResponseEntity.ok(anuncioServiceImpl.getAnuncios());
 	}
 
 	@GetMapping("findById")
-	public ResponseEntity<DTOAnuncio> getById(@Valid @RequestParam String name) {
+	public ResponseEntity<PostInfoDto> getById(@Valid @RequestParam String name) {
 		return ResponseEntity.ok(anuncioServiceImpl.getByUserName(name).get());
 	}
 
@@ -45,12 +47,12 @@ public class ControllerAnuncio {
 	}
 
 	@PostMapping("create")
-	public ResponseEntity<Boolean> post(@Valid @RequestBody DTOAnuncio dtoAnuncio) {
+	public ResponseEntity<Boolean> post(@Valid @RequestBody CreatePostDTOVenta dtoAnuncio) {
 		return ResponseEntity.ok(anuncioServiceImpl.createPostVenta(dtoAnuncio));
 	}
 
 	@PutMapping("update")
-	public ResponseEntity<Boolean> put(@Valid @RequestBody  DTOAnuncio dtoAnuncio) {
+	public ResponseEntity<Boolean> put(@Valid @RequestBody UpdateDtoAnuncio dtoAnuncio) {
 		//TODO
 		return ResponseEntity.ok(anuncioServiceImpl.update(dtoAnuncio));
 	}

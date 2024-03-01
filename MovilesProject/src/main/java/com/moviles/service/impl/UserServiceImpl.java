@@ -1,6 +1,6 @@
 package com.moviles.service.impl;
 
-import static org.springframework.http.HttpStatus.FORBIDDEN;
+import static org.springframework.http.HttpStatus.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -38,8 +38,6 @@ public class UserServiceImpl implements UserService {
 	private final UserDTO2UserMapper userDTO2UserMapper;
 	private final JwtUtils jwtUtils;
 
-	
-
 	public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository,
 			UserDTO2UserMapper userDTO2UserMapper, JwtUtils jwtUtils) {
 		super();
@@ -48,54 +46,53 @@ public class UserServiceImpl implements UserService {
 		this.userDTO2UserMapper = userDTO2UserMapper;
 		this.jwtUtils = jwtUtils;
 	}
-	
+
 	@Override
 	public boolean createUser(DTOCreateUser dto) {
 		Usuario user = userDTO2UserMapper.map(dto);
 		if (dto.roles() != null) {
 			Set<RoleEntity> roles = fillRoles(dto.roles());
-//			user.setRoles(roles);
+			// user.setRoles(roles);
 		}
 		if (userRepository.save(user) != null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	private Set<RoleEntity> fillRoles(String[] t) {
 		if (ERole.validate(t)) {
 			return Arrays.asList(t).stream()
 					.map((rol) -> {
-							ERole rolresult = ERole.getRole(rol).get();
-							Optional<RoleEntity> byName = roleRepository.findByName(rolresult);
-							RoleEntity roleEntity = byName.get();
-							return roleEntity;
-						})
+						ERole rolresult = ERole.getRole(rol).get();
+						Optional<RoleEntity> byName = roleRepository.findByName(rolresult);
+						RoleEntity roleEntity = byName.get();
+						return roleEntity;
+					})
 					.collect(Collectors.toSet());
 		}
 		return null;
 	}
 
-
 	@Override
 	public boolean delete(String username) {
 		Optional<Usuario> byUsername = userRepository.findByUsername(username);
 		userRepository.delete(byUsername.get());
-//		userRepository.deleteByUsername(username);
+		// userRepository.deleteByUsername(username);
 		return true;
 	}
-	
-	
 
 	@Override
-	public void refreshingToken(HttpServletResponse response, String authorizationHeader) throws Exception{
+	public void refreshingToken(HttpServletResponse response, String authorizationHeader) throws Exception {
 		try {
 			String refresh_token = authorizationHeader.substring("Bearer ".length());
-	//		Aqui tenemos este objeto que contiene el nombre del codificador hmac384 y la propia secret key
+			// Aqui tenemos este objeto que contiene el nombre del codificador hmac384 y la
+			// propia secret key
 			Algorithm algorithm = Algorithm.HMAC384(jwtUtils.getSignatureKey().getEncoded());
-			//Aqui tenemos al verificador que va a usar este algoritmo, consturido con el algoritmo anterior
+			// Aqui tenemos al verificador que va a usar este algoritmo, consturido con el
+			// algoritmo anterior
 			JWTVerifier verifier = JWT.require(algorithm).build();
-			//obtenemos el token descodificado si cumple lo anterior
+			// obtenemos el token descodificado si cumple lo anterior
 			DecodedJWT decodedJWT = verifier.verify(refresh_token);
 			///////////////////////////////////////////////////////////////////////////////////////
 			String username = decodedJWT.getSubject();

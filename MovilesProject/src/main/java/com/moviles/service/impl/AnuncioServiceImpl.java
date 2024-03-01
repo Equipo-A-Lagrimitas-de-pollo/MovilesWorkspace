@@ -5,7 +5,10 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.moviles.model.DTO.DTOAnuncio;
+import com.moviles.model.DTO.CreatePostDTOIntercambio;
+import com.moviles.model.DTO.CreatePostDTOVenta;
+import com.moviles.model.DTO.PostInfoDto;
+import com.moviles.model.DTO.UpdateDtoAnuncio;
 import com.moviles.model.entity.PostVenta;
 import com.moviles.repositories.PostVentaRepository;
 import com.moviles.service.AnucioService;
@@ -20,19 +23,25 @@ public class AnuncioServiceImpl implements AnucioService {
     }
 
     @Override
-    public boolean createPostIntercambio(DTOAnuncio dtoAnuncio) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createPostIntercambio'");
+    public boolean createPostIntercambio(CreatePostDTOIntercambio dtoAnuncio) {
+        Optional<PostVenta> postVentas = postVentaRepository.findByReferencia();
+        if (postVentas.isPresent()) {
+            return false;
+        } else {
+
+        }
+        return false;
+
     }
 
     @Override
-    public List<DTOAnuncio> getAnuncios() {
+    public List<PostInfoDto> getAnuncios() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAnuncios'");
     }
 
     @Override
-    public boolean createPostVenta(DTOAnuncio dtoAnuncio) {
+    public boolean createPostVenta(CreatePostDTOVenta dtoAnuncio) {
         // TODO Auto-generated method stub
         return false;
     }
@@ -44,7 +53,7 @@ public class AnuncioServiceImpl implements AnucioService {
     }
 
     @Override
-    public Optional<DTOAnuncio> getByUserName(String name) {
+    public Optional<PostInfoDto> getByUserName(String name) {
         // TODO Auto-generated method stub
         return Optional.empty();
     }
@@ -52,5 +61,10 @@ public class AnuncioServiceImpl implements AnucioService {
     public void createPost(PostVenta post) {
         postVentaRepository.save(post);
     }
+
+	@Override
+	public boolean update(UpdateDtoAnuncio dto) {
+		return false;
+	}
 
 }
