@@ -18,7 +18,7 @@ public interface AnucioService {
 
 	public boolean deletePostVenta(Long id);
 
-	public Optional<PostInfoDto> getByUserName(String name);
+	public List<PostInfoDto> getByUserName(String name);
 
 	public boolean update(UpdateDtoAnuncio dto);
 	/*

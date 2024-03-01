@@ -7,7 +7,7 @@ public class CreatePostDtoVentaToPostVenta implements Mapper<CreatePostDTOVenta,
 
 	@Override
 	public PostVenta map(CreatePostDTOVenta t) {
-		return new PostVenta(t.getUserName(),t.getReferencia(),t.getReferenciaMovil(),t.getEstado(),t.getFecha(),t.getPrecio());
+		return new PostVenta(t.getReferencia(),t.getReferenciaMovil(),t.getEstado(),t.getFecha(),t.getPrecio());
 	}
 
 }

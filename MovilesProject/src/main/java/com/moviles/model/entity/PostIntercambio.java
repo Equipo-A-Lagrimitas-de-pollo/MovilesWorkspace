@@ -17,14 +17,22 @@ public class PostIntercambio extends Post {
     @Field("estadoMinimo")
     private String estadoMinimo;
 
-    public PostIntercambio(String emailUsuario, Long referencia,Long referenciaMovil,  String estado, Date date,
+    public PostIntercambio(Usuario user, Long referencia,Long referenciaMovil,  String estado, Date date,
             String estadoMinimo) {
-        super(emailUsuario, referencia,referenciaMovil, estado, date);
+        super(user, referencia,referenciaMovil, estado, date);
         this.estadoMinimo = estadoMinimo;
     }
 
     public PostIntercambio(String estadoMinimo) {
         this.estadoMinimo = estadoMinimo;
     }
+
+	public PostIntercambio(Long referencia, Long referenciaMovil, String estado, Date date,
+			String estadoMinimo) {
+		super(referencia, referenciaMovil, estado, date);
+		this.estadoMinimo = estadoMinimo;
+	}
+    
+    
 
 }
