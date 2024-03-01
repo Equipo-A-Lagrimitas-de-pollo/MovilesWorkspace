@@ -5,8 +5,11 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.moviles.model.entity.PostVenta;
+import com.moviles.model.DTO.CreatePostDTOIntercambio;
+import com.moviles.model.DTO.DTOCreateUser;
+import com.moviles.repositories.RoleRepository;
 import com.moviles.service.impl.AnuncioServiceImpl;
+import com.moviles.service.impl.UserServiceImpl;
 
 import jakarta.annotation.PostConstruct;
 
@@ -14,9 +17,13 @@ import jakarta.annotation.PostConstruct;
 public class Popopulate {
     @Autowired
     private final AnuncioServiceImpl anucioService;
+    private final UserServiceImpl userService;
+    private final RoleRepository roleRepository;
 
-    public Popopulate(AnuncioServiceImpl anucioService) {
+    public Popopulate(AnuncioServiceImpl anucioService, UserServiceImpl userServiceImpl, RoleRepository roleRepository) {
         this.anucioService = anucioService;
+		this.userService = userServiceImpl;
+		this.roleRepository = roleRepository;
     }
 
     @PostConstruct
@@ -26,6 +33,8 @@ public class Popopulate {
 
     public void populate() {
     	//TODO
-        //anucioService.createPost(new PostVenta(1, 1, "Heroico", new Date(10, 10, 2), 0));
+//    	roleRepository.save();
+//    	userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
+        anucioService.createPostIntercambio(new CreatePostDTOIntercambio("paco",null,null,new Date(2L),"bien","regular"));
     }
 }

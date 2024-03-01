@@ -42,9 +42,9 @@ public class AnuncioServiceImpl implements AnucioService {
         if (post.isPresent()) {
             return false;
         }
-        Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
+        //Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
         PostIntercambio newPostIntercambio = new CreatePostDtoToPostIntercambio().map(dtoAnuncio);
-        newPostIntercambio.setUser(user);
+        //newPostIntercambio.setUser(user);
         postIntercambioRepository.save(newPostIntercambio);
         return true;
 
