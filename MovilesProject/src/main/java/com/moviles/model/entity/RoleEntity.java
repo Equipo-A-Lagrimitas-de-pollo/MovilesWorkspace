@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Document("roles")
 public class RoleEntity {
 	@Id
-	@Field("_id")
 	private String id;
 
 	@Field("nombreRol")

@@ -66,8 +66,9 @@ public class UserServiceImpl implements UserService {
 			return Arrays.asList(t).stream()
 					.map((rol) -> {
 						ERole rolresult = ERole.getRole(rol).get();
-						Optional<RoleEntity> byName = roleRepository.findByName(rolresult);
-						RoleEntity roleEntity = byName.get();
+						List<RoleEntity> byName = roleRepository.findByName(rolresult);
+						RoleEntity roleEntity = byName.get(0);
+						System.out.println(roleEntity.getId());
 						return roleEntity;
 					})
 					.collect(Collectors.toSet());
