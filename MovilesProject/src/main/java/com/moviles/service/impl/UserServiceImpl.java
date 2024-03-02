@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 		Usuario user = userDTO2UserMapper.map(dto);
 		if (dto.roles() != null) {
 			Set<RoleEntity> roles = fillRoles(dto.roles());
-			// user.setRoles(roles);
+			user.setRoles(roles);
 		}
 		if (userRepository.save(user) != null) {
 			return true;

@@ -1,5 +1,7 @@
 package com.moviles.mapper;
 
+import java.sql.Date;
+
 import com.moviles.model.DTO.PostInfoDto;
 import com.moviles.model.entity.Post;
 import com.moviles.model.entity.PostIntercambio;

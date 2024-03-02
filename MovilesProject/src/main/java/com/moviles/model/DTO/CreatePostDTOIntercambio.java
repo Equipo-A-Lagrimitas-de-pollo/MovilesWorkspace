@@ -15,7 +15,7 @@ public class CreatePostDTOIntercambio {
 	private String userName;
 	private Long referencia;
 	private Long referenciaMovil;
-	private Date fecha;
+	private String fecha;
 	private String estado;
 	private String estadoMinimoRequerido;
 }

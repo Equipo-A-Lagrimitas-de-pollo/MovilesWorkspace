@@ -1,6 +1,7 @@
 
 package com.moviles.model.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -21,9 +22,8 @@ import lombok.NoArgsConstructor;
 @Document("roles")
 public class RoleEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Field("idRol")
-	private Long id;
+	@Field("_id")
+	private ObjectId id;
 	@Enumerated(EnumType.STRING)
 	@Column(unique = true)
 	@Field("nombreRol")

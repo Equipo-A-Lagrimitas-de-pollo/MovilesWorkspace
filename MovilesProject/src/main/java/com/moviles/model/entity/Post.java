@@ -26,9 +26,9 @@ public abstract class Post {
     @Field("estado")
     private String estado;
     @Field("fechaCreacion")
-    private Date date;
+    private String date;
 
-    public Post(Usuario user, Long referencia,Long referenciaMovil, String estado, Date date) {
+    public Post(Usuario user, Long referencia,Long referenciaMovil, String estado, String date) {
         this.user = user;
         this.referencia = referencia;
         this.referenciaMovil = referenciaMovil;
@@ -36,7 +36,7 @@ public abstract class Post {
         this.date = date;
     }
 
-	public Post(Long referencia, Long referenciaMovil, String estado, Date date) {
+	public Post(Long referencia, Long referenciaMovil, String estado, String date) {
 		super();
 		this.referencia = referencia;
 		this.referenciaMovil = referenciaMovil;

@@ -5,8 +5,12 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.moviles.OMs.MovilOM;
 import com.moviles.model.DTO.CreatePostDTOIntercambio;
 import com.moviles.model.DTO.DTOCreateUser;
+import com.moviles.model.entity.Modelo;
+import com.moviles.model.entity.Movil;
+import com.moviles.repositories.MovilRepository;
 import com.moviles.repositories.RoleRepository;
 import com.moviles.service.impl.AnuncioServiceImpl;
 import com.moviles.service.impl.UserServiceImpl;
@@ -19,11 +23,13 @@ public class Popopulate {
     private final AnuncioServiceImpl anucioService;
     private final UserServiceImpl userService;
     private final RoleRepository roleRepository;
+    private final MovilRepository movilRepository;
 
-    public Popopulate(AnuncioServiceImpl anucioService, UserServiceImpl userServiceImpl, RoleRepository roleRepository) {
+    public Popopulate(AnuncioServiceImpl anucioService, UserServiceImpl userServiceImpl, RoleRepository roleRepository, MovilRepository movilRepository) {
         this.anucioService = anucioService;
 		this.userService = userServiceImpl;
 		this.roleRepository = roleRepository;
+		this.movilRepository = movilRepository;
     }
 
     @PostConstruct
@@ -35,6 +41,7 @@ public class Popopulate {
     	//TODO
 //    	roleRepository.save();
 //    	userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
-        anucioService.createPostIntercambio(new CreatePostDTOIntercambio("paco",null,null,new Date(2L),"bien","regular"));
+    	//movilRepository.save(MovilOM.createMovil().get(0));
+        System.out.println(anucioService.createPostIntercambio(new CreatePostDTOIntercambio("otro",null,null,"02-03-2024","bien","regular")));
     }
 }

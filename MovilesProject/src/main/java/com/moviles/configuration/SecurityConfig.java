@@ -48,9 +48,9 @@ public class SecurityConfig {
 				httpSecurity
 				.csrf((cs) -> cs.disable())
 				.authorizeHttpRequests((auth) -> {
-						auth.requestMatchers("users/hello").permitAll();
+						auth.requestMatchers("anuncio/find").permitAll();
 //						auth.requestMatchers("users/helloSecured").hasAnyRole("ADMIN");
-						auth.anyRequest().authenticated();
+						auth.anyRequest().permitAll();//aqui estaba authenticated
 						})
 				.sessionManagement((sess) -> {
 						sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

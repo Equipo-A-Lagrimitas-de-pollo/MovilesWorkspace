@@ -17,7 +17,7 @@ public class CreatePostDTOVenta {
 	private String userName;
 	private Long referencia;
 	private Long referenciaMovil;
-	private Date fecha;
+	private String fecha;
 	private String estado;
 	private Double precio;
 

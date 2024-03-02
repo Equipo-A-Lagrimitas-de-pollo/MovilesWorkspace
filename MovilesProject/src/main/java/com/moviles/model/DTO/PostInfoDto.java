@@ -9,10 +9,10 @@ import lombok.Data;
 public class PostInfoDto {
 	private String nombreUsuario;
 	private String nombreMovil;
-	private Date fecha;
+	private String fecha;
 	private String estado;
 	
-	public PostInfoDto(String nombreUsuario, String nombreMovil, Date fecha, String estado) {
+	public PostInfoDto(String nombreUsuario, String nombreMovil, String fecha, String estado) {
 		super();
 		this.nombreUsuario = nombreUsuario;
 		this.nombreMovil = nombreMovil;
