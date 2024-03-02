@@ -1,5 +1,6 @@
 package com.moviles.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,9 +45,9 @@ public class AnuncioServiceImpl implements AnucioService {
             return false;
         }
         Optional<Movil> movilEncontrado = movilRepository.findByReferencia(dtoAnuncio.getReferenciaMovil());
-        //Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
+        Usuario user = userServiceImpl.getUserByUsername(dtoAnuncio.getUserName());
         PostIntercambio newPostIntercambio = new CreatePostDtoToPostIntercambio().map(dtoAnuncio);
-        //newPostIntercambio.setUser(user);
+        newPostIntercambio.setUser(user);
         newPostIntercambio.setReferenciaMovil(dtoAnuncio.getReferencia());
         postIntercambioRepository.save(newPostIntercambio);
         return true;
@@ -56,13 +57,14 @@ public class AnuncioServiceImpl implements AnucioService {
     @Override
     public List<PostInfoDto> getAnuncios() {
        List<PostIntercambio> posts = postIntercambioRepository.findAll();
-       List<PostInfoDto> info = posts.stream()
+       List<PostInfoDto> all = new ArrayList<>();
+       all.addAll(posts.stream()
     		   .map(post->new PostIntercambioToPostInfoDto().map(post))
-    		   .toList();
-       info.addAll(postVentaRepository.findAll().stream()
+    		   .toList());
+       all.addAll(postVentaRepository.findAll().stream()
     		   .map(postVenta->new PostVentaToPostInfoDto().map(postVenta))
     		   .toList());
-       return info;
+       return all;
     }
 
     @Override

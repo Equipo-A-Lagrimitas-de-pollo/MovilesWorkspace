@@ -2,6 +2,7 @@ package com.moviles.model.entity;
 
 import java.util.Set;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -17,8 +18,7 @@ import lombok.NoArgsConstructor;
 @Document("users")
 public class Usuario {
 	@Id
-	@Field("_id")
-	private Long id;
+	private ObjectId id;
 	@Field("emailUsuario")
 	private String email;
 	@Field("nombreUsuario")

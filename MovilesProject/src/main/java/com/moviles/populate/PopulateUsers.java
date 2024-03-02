@@ -33,10 +33,10 @@ public class PopulateUsers {
         // TODO
         // anucioService.createPost(new PostVenta(1, 1, "Heroico", new Date(10, 10, 2),
         // 0));
-    	Arrays.asList(ERole.values()).forEach(role->{
-    		roleRepository.save(new RoleEntity(role));
-    	});
-        userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
+//    	Arrays.asList(ERole.values()).forEach(role->{
+//    		roleRepository.save(new RoleEntity(role));
+//    	});
+        //userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
 //        userService.createUser(new DTOCreateUser("Jose@gmail.com", "JOSE", "Joselito", "ADMIN"));
 //        userService.createUser(new DTOCreateUser("Juana@gmail.com", "Juana", "jasdasdasd", "USER"));
 //        userService.createUser(new DTOCreateUser("fermin@gmail.com", "Fermin", "fermina", "USER"));

@@ -20,5 +20,7 @@ public class CreatePostDTOVenta {
 	private String fecha;
 	private String estado;
 	private Double precio;
+	
+	
 
 }
