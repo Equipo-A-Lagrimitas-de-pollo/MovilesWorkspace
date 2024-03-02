@@ -21,7 +21,7 @@ import com.moviles.service.MovilService;
 import io.micrometer.common.lang.NonNull;
 
 @Service
-public class MovilServiceImpl implements MovilService,FilterService<List<Movil>, DTOMovilFilter> {
+public class MovilServiceImpl implements MovilService, FilterService<List<Movil>, DTOMovilFilter> {
 
 	private MovilRepository movilRepository;
 
@@ -88,12 +88,12 @@ public class MovilServiceImpl implements MovilService,FilterService<List<Movil>,
 	@Override
 	public List<Movil> filter(DTOMovilFilter parametros) {
 		List<Movil> toFilter = getAll();
-		List<Filter<?>> filtros= new MapDTOFilterToListFilter().map(parametros);
+		List<Filter<?>> filtros = new MapDTOFilterToListFilter().map(parametros);
 		for (Filter<?> filter : filtros) {
-			toFilter=toFilter.stream().filter(movil->filter.filter(movil)).toList();
+			toFilter = toFilter.stream().filter(movil -> filter.filter(movil)).toList();
 		}
-		return toFilter;	
-		
+		return toFilter;
+
 	}
 
 }
