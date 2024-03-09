@@ -20,10 +20,15 @@ public abstract class Peticion {
     protected Usuario user;
     @Field("referencia")
     protected String referencia;
+    protected boolean aceptada = false;
     
 	public Peticion(Usuario user) {
 		super();
 		this.user = user;
+	}
+	
+	public boolean isSameUser(String name) {
+		return user.getUsername().equals(name);
 	}
     
     

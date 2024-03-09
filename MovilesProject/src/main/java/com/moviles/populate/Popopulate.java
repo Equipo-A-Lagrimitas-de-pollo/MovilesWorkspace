@@ -41,7 +41,7 @@ public class Popopulate {
     public void populate() {
     	//TODO
 //    	roleRepository.save();
-    	userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
+    	//userService.createUser(new DTOCreateUser("pepe@gmail.com", "Pepe", "pepepepe", "USER"));
     	//movilRepository.save(MovilOM.createMovil().get(0));
         //System.out.println(anucioService.createPostIntercambio(new CreatePostDTOIntercambio("Pepe",null,null,"02-03-2024","bien","regular")));
     	//anucioService.createPostVenta(new CreatePostDTOVenta("Pepe",null,null,"02-03-2024","bien",10d));
